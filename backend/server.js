@@ -4,6 +4,7 @@ import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import authRoutes from './routes/auth.js'
+import portfolioRoutes from './routes/portfolio.js'
 
 // load environment variables from the .env files
 dotenv.config()
@@ -37,6 +38,7 @@ app.get('/', (req, res) => {
 
 // using the authentication routes
 app.use('/api/auth', authRoutes)
+app.use('/api/portfolio', portfolioRoutes)
 
 // starting the server
 app.listen(PORT, ()=> {

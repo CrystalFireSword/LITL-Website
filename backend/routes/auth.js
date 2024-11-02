@@ -2,23 +2,13 @@ import express from 'express'
 import User from '../models/user.model.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import authMiddleware from '../authMiddleware.js'
+import { authMiddleware } from '../middleware/authMiddleware.js'
 
 const router = express.Router()
 
 // Registration Route
 
-// yet to write code for getting and deleting all users
-// similarly we can get all users using another get method to check for admit and then use find({})
-router.get('/profile', authMiddleware, async (req,res)=>{
-    const id = req.user.userId
-    console.log(id)
-    const data = await User.findOne({_id:id}).select('-password')
-    res.json({message:'Welcome to your profile!', 
-        user:(data)
-})
-})
-
+// yet to write code for getting all users
 
 router.post('/signup', async (req, res)=>{
     const {username, email, password} = req.body;
@@ -67,6 +57,8 @@ router.put('/login', async(req, res)=>{
 
         // compare passwords
         const isMatch = await bcrypt.compare(password, user.password)
+        
+        console.log(isMatch, password, user.password)
         if (!isMatch){
             return res.status(400).json({message:'Invalid Credentials'})
         }
@@ -82,4 +74,53 @@ router.put('/login', async(req, res)=>{
     }
 })
 
+// similarly we can get all users using another get method to check for admit and then use find({})
+// getting a given user's profile based on token
+router.get('/profile', authMiddleware, async (req,res)=>{
+    const id = req.user.userId
+    console.log(id)
+    const data = await User.findOne({_id:id}).select('-password')
+    res.json({message:'Welcome to your profile!', 
+        user:(data)
+})
+})
+
+// updating a user's profile based on token and updated values
+router.put('/profile', authMiddleware, async(req,res)=>{
+    const {username,password} = req.body
+    const saltRounds = 10;
+    const salt = await bcrypt.genSalt(saltRounds);
+    
+    //hashing using salt
+    const hashedPassword = await bcrypt.hash(password, salt)
+    try{
+        const updatedUser = await User.findByIdAndUpdate(
+            req.user.userId,
+            {username:username, password:hashedPassword},
+            {new:true}
+        )
+        if (!updatedUser){
+            return res.status(404).json({message: 'User not found'})
+        }
+        return res.status(200).json(updatedUser)
+    } catch(error){
+        return res.status(500).json({message: 'Error updating profile'+error.message})
+    }
+})
+
+// deleting a user's account based on their token
+router.delete('/profile', authMiddleware, async (req, res)=>{
+
+    const id = req.user.userId
+    try{
+        const deleted = User.findByIdAndDelete(id)
+        if (!deleted){
+            return res.status(400).json({message:'ID not found'})
+        }
+        return res.status(200).json({message:'Deleteed Successfully!'})
+
+    } catch(error){
+        return res.status(400).json({message:'Error while deleting'+error.message})
+    }
+})
 export default router
