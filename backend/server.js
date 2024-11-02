@@ -18,6 +18,13 @@ app.use(express.json())
 
 // mongodb connection
 
+mongoose.connect(process.env.MONGODB_URI,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(()=> console.log('MongoDB connected successfully!'))
+.catch(err => console.error('MongoDB connection error', err))
+
 // Simple route to test if the server is running
 app.get('/', (req, res) => {
     res.send("LITL SERVER IS RUNNING!")
@@ -25,6 +32,6 @@ app.get('/', (req, res) => {
 
 // starting the server
 app.listen(PORT, ()=> {
-    console.log(`Server is running on http://localholt:${PORT}`)
+    console.log(`Server is running on http://localhost:${PORT}`)
 })
 
