@@ -3,9 +3,10 @@
 import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
+import authRoutes from './routes/auth.js'
 
 // load environment variables from the .env files
-dotenv.config() 
+dotenv.config()
 
 // create the express app
 
@@ -18,17 +19,24 @@ app.use(express.json())
 
 // mongodb connection
 
-mongoose.connect(process.env.MONGODB_URI,{
+//console.log(process.env.MONGODB_URI)
+
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+    useUnifiedTopology: true})
 .then(()=> console.log('MongoDB connected successfully!'))
 .catch(err => console.error('MongoDB connection error', err))
 
 // Simple route to test if the server is running
+
+
 app.get('/', (req, res) => {
     res.send("LITL SERVER IS RUNNING!")
 })
+
+
+// using the authentication routes
+app.use('/api/auth', authRoutes)
 
 // starting the server
 app.listen(PORT, ()=> {

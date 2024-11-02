@@ -1,5 +1,5 @@
 import express from 'express'
-import User from '../models/User.js'
+import User from '../models/user.model.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
@@ -7,19 +7,27 @@ const router = express.Router()
 
 // Registration Route
 
+// yet to write code for getting and deleting all users
+
+
+
 router.post('/signup', async (req, res)=>{
     const {username, email, password} = req.body;
 
     try {
         // check if the user already exists
-        const existingUser = await User.findOne({ email})
+        const existingUser = await User.findOne({email: email})
         if (existingUser){
             return res.status(400).json({message: 'User already exists'})
         }
         
         // hashing the password
-        const hashedPassword = await bcrypt.hasg(password, 10)
-
+        const saltRounds = 10;
+        const salt = await bcrypt.genSalt(saltRounds);
+        console.log(salt, password)
+        //hashing using salt
+        const hashedPassword = await bcrypt.hash(password, salt)
+        console.log(hashedPassword)
         // create a new user
 
         const newUser = new User({
@@ -32,14 +40,14 @@ router.post('/signup', async (req, res)=>{
         res.status(201).json({message: 'User registered successfully!'})
     }
     catch(error){
-        res.status(500).json({message: 'Server error'})
+        res.status(500).json({message: error.message})
     }
 })
 
 
 // Login route
 
-router.post('/login', async(req, res)=>{
+router.put('/login', async(req, res)=>{
     const {email, password} = req.body
 
     try{
@@ -51,7 +59,7 @@ router.post('/login', async(req, res)=>{
         // compare passwords
         const isMatch = await bcrypt.compare(password, user.password)
         if (!isMatch){
-            return res.status(400).json({messahe:'Invalid Credentials'})
+            return res.status(400).json({message:'Invalid Credentials'})
         }
         
         // create a JWT token
