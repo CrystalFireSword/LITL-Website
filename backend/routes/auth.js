@@ -2,13 +2,22 @@ import express from 'express'
 import User from '../models/user.model.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import authMiddleware from '../authMiddleware.js'
 
 const router = express.Router()
 
 // Registration Route
 
 // yet to write code for getting and deleting all users
-
+// similarly we can get all users using another get method to check for admit and then use find({})
+router.get('/profile', authMiddleware, async (req,res)=>{
+    const id = req.user.userId
+    console.log(id)
+    const data = await User.findOne({_id:id}).select('-password')
+    res.json({message:'Welcome to your profile!', 
+        user:(data)
+})
+})
 
 
 router.post('/signup', async (req, res)=>{
@@ -51,7 +60,7 @@ router.put('/login', async(req, res)=>{
     const {email, password} = req.body
 
     try{
-        const user = await User.findOne({email})
+        const user = await User.findOne({email:email})
         if (!user){
             return res.status(400).json({message:'User not found'})
         }
@@ -69,7 +78,7 @@ router.put('/login', async(req, res)=>{
 
         res.json({token})
     } catch (error){
-        res.status(500).json({message:'Server Error'})
+        res.status(500).json({message:'Server Error'+error.message, })
     }
 })
 
