@@ -1,0 +1,102 @@
+/* src/Navbar.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* Background carousel for volunteer hub */
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #343a40;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Volunteer Hub Section with Carousel */
+.volunteer-hub {
+  margin-top: 50px;
+  height: 400px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: backgroundCarousel 15s infinite linear;
+}
+
+/* Keyframes for background carousel */
+
+
+/* Carousel button styling */
+.carousel-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.carousel-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Additional carousel controls container */
+.carousel-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+/* About Us Section */
+.about-us {
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.about-us p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #555;
+}
+
+.about-us h2 {
+  color: #343a40;
+}
+
+
+/* Keyframes for background image transitions */
+/*@keyframes backgroundCarousel {
+  0% {
+    background-image: url('image1.jpg');
+  }
+  33% {
+    background-image: url('image2.jpg');
+  }
+  66% {
+    background-image: url('image3.jpg');
+  }
+  100% {
+    background-image: url('image1.jpg');
+  }
+}
+*/

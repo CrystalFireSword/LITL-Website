@@ -7,8 +7,8 @@ import authRoutes from './routes/auth.js'
 import portfolioRoutes from './routes/portfolio.js'
 
 // load environment variables from the .env files
-dotenv.config()
-
+//dotenv.config()
+dotenv.config({ path: '../.env' });
 // create the express app
 
 const app = express()
@@ -20,7 +20,7 @@ app.use(express.json())
 
 // mongodb connection
 
-//console.log(process.env.MONGODB_URI)
+console.log(process.env.MONGODB_URI)
 
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
