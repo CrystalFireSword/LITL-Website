@@ -5,9 +5,10 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 import authRoutes from './routes/auth.js'
 import portfolioRoutes from './routes/portfolio.js'
+import subscriberRouter from './routes/subscriber.js'
 
 // load environment variables from the .env files
-dotenv.config()
+dotenv.config({path:'../.env'})
 
 // create the express app
 
@@ -22,9 +23,7 @@ app.use(express.json())
 
 //console.log(process.env.MONGODB_URI)
 
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true})
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=> console.log('MongoDB connected successfully!'))
 .catch(err => console.error('MongoDB connection error', err))
 
@@ -36,9 +35,11 @@ app.get('/', (req, res) => {
 })
 
 
+
 // using the authentication routes
 app.use('/api/auth', authRoutes)
 app.use('/api/portfolio', portfolioRoutes)
+app.use('/api/subscriber', subscriberRouter)
 
 // starting the server
 app.listen(PORT, ()=> {
