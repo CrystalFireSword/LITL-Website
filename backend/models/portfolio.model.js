@@ -8,13 +8,17 @@ const portfolioSchema = new mongoose.Schema({
     description: { 
         type: String, 
         required: true },
-    type: { 
+    type: [{ 
         type: String, 
         enum: ['Caption', 'Post', 'Design', 'Marketing','Other'], 
-        required: true },
+        required: true }],
     language : [{
         type : String,
         enum : ['Tamil','Hindi','Sanskrit','English','Other'],
+        required : true,
+    }],
+    tags : [{
+        type:String,
         required : true,
     }],
     link: { 

@@ -1,6 +1,7 @@
 import express from 'express'
 import Portfolio from '../models/portfolio.model.js'
 import { verifyToken } from '../middleware/authMiddleware.js'
+import {Filter, TypeFilter,HashtagFilter, LanguageFilter, PostFilterContext} from "../design_patterms/strategy_pattern.js"
 
 const router = express.Router()
 
@@ -17,16 +18,37 @@ router.post('/', verifyToken, async (req, res)=>{
 })
 
 // getting all posts
-router.get('/', async(req, res) => {
-    try{
-        const items = await Portfolio.find({})
-        res.status(200).json(items)
-    } 
-    catch (err){
-        res.status(500).json({message:'Error while getting posts'+err})
-     
+const uri = process.env.MONGODB_URI; // Ensure this is set in your .env file
+
+router.get('/', async (req, res) => {
+    const { type, languages, hashtag } = req.query; // Retrieve query parameters
+    const context = new PostFilterContext();
+
+    // Map query parameters to their respective filter strategies
+    const strategyMap = {
+        type: TypeFilter.getInstance(),
+        languages: LanguageFilter.getInstance(),
+        hashtag: HashtagFilter.getInstance(),
+    };
+
+    // Loop over each parameter and set strategy if parameter exists
+    Object.entries(strategyMap).forEach(([param, strategy]) => {
+        if (req.query[param]) {
+            context.setStrategy(strategy);
+        }
+    });
+
+    try {
+        const filteredPosts = await context.filter(type, languages, hashtag);
+        res.json(filteredPosts);
+    } catch (error) {
+        res.status(500).json({ message: "Error retrieving portfolio items", error: error.message });
     }
-})
+});
+
+
+
+
 
 // updating a given post
 router.put('/:id', verifyToken, async(req, res)=>{
