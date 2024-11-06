@@ -1,0 +1,66 @@
+.footer {
+    background-image: linear-gradient(-45deg, #E9DFD8, #FFE3D6, #CCCCFF, #C8F3F9, #EBFBDA); /* Using the light theme colors */
+    color: #111110; /* Timberwolf */
+    text-align: center;
+    padding: 40px 0; /* Increased padding for height */
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+footer{
+    color: black;
+    height: 100px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+    color: black;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0; /* Adjusted margin */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-menu li {
+    margin: 0;
+}
+
+.footer-menu a {
+    color: #FFE3D6; /* Champagne pink */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-menu a:hover {
+    color: #CCCCFF; /* Periwinkle */
+}
+
+/* Ensures the footer is pushed to the bottom on short content pages */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.footer {
+    flex-shrink: 0;
+}

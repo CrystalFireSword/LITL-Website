@@ -8,7 +8,9 @@ import portfolioRoutes from './routes/portfolio.js'
 import subscriberRouter from './routes/subscriber.js'
 
 // load environment variables from the .env files
-dotenv.config({path:'../.env'})
+
+
+dotenv.config({path:'../.env'});
 
 // create the express app
 
@@ -21,7 +23,7 @@ app.use(express.json())
 
 // mongodb connection
 
-//console.log(process.env.MONGODB_URI)
+console.log(process.env.MONGODB_URI)
 
 mongoose.connect(process.env.MONGODB_URI)
 .then(()=> console.log('MongoDB connected successfully!'))
