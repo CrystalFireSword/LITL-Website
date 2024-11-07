@@ -1,6 +1,6 @@
 import express from 'express'
 import Subscriber from '../models/subscribers.model.js'
-
+import {myBlog} from '../design_patterms/observer_pattern.js'
 
 const router = express.Router()
 
@@ -9,6 +9,7 @@ const router = express.Router()
 
 router.post('/', async (req, res) =>{
     const newSubscriber = new Subscriber(req.body)
+    myBlog.subscribe(newSubscriber.mailId)
     try{
         const savedItem = await newSubscriber.save()
         res.status(200).json(savedItem)
