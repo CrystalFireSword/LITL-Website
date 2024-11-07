@@ -2,9 +2,6 @@
 
 import Subscriber from "../models/subscribers.model.js"
 
-// Observer Pattern: Notifying users when a new post is added
-
-// Observer (User) class
 class User {
     constructor(name) {
         this.name = name;
@@ -15,10 +12,9 @@ class User {
     }
 }
 
-// Subject (Blog) class
 class Blog {
     constructor() {
-        this.subscribers = null; // List of subscribers (observers)
+        this.subscribers = null; 
         this.get_subscribers()
     }
 
