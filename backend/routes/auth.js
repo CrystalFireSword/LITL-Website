@@ -46,34 +46,35 @@ router.post('/signup', async (req, res)=>{
 
 // Login route
 
-router.put('/login', async(req, res)=>{
-    const {email, password} = req.body
+router.put('/login', async (req, res) => {
+    const { email, password } = req.body;
 
-    try{
-        const user = await User.findOne({email:email})
-        if (!user){
-            return res.status(400).json({message:'User not found'})
+    try {
+        const user = await User.findOne({ email: email });
+        if (!user) {
+            return res.status(400).json({ message: 'User not found' });
         }
 
-        // compare passwords
-        const isMatch = await bcrypt.compare(password, user.password)
-        
-        console.log(isMatch, password, user.password)
-        if (!isMatch){
-            return res.status(400).json({message:'Invalid Credentials'})
+        // Compare passwords
+        const isMatch = await bcrypt.compare(password, user.password);
+        console.log(isMatch, password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Invalid Credentials' });
         }
-        
-        // create a JWT token
-        const token = jwt.sign({userId: user._id}, process.env.JWT_SECRET, {
+
+        // Determine role based on email
+        const role = email === 'testuser1@gmail.com' ? 'admin' : 'user';
+
+        // Create a JWT token with user ID and role
+        const token = jwt.sign({ userId: user._id, role: role }, process.env.JWT_SECRET, {
             expiresIn: '1h'
-        })
+        });
 
-        res.json({token})
-    } catch (error){
-        res.status(500).json({message:'Server Error'+error.message, })
+        res.json({ token, role });
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error: ' + error.message });
     }
-})
-
+});
 // similarly we can get all users using another get method to check for admit and then use find({})
 // getting a given user's profile based on token
 router.get('/profile', authMiddleware, async (req,res)=>{

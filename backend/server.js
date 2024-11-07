@@ -6,6 +6,9 @@ import dotenv from "dotenv"
 import authRoutes from './routes/auth.js'
 import portfolioRoutes from './routes/portfolio.js'
 
+import cors from 'cors';
+
+
 // load environment variables from the .env files
 //dotenv.config()
 dotenv.config({ path: '../.env' });
@@ -17,6 +20,7 @@ const PORT = process.env.PORT || 5000
 // introduce middleware to parse json file
 
 app.use(express.json())
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 // mongodb connection
 

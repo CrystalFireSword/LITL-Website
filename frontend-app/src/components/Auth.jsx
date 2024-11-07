@@ -1,20 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Auth.css";
+import { useNavigate } from "react-router-dom";
+import FullCalendar from '@fullcalendar/react';  //to use calender
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 const Auth = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        logemail: "",
-        logpass: "",
         name: "",
         phone: "",
         signupEmail: "",
         signupPass: "",
     });
+    const [events, setEvents] = useState([]);
+    const [selectedEvent, setSelectedEvent] = useState(null);
+    const [newDate, setNewDate] = useState(null);
+
+    /*useEffect(() => {
+        const fetchOrders = async() => {
+            try{
+                const response = await axios.get('')
+            }
+        }
+    })*/
 
     // State to toggle between login and signup
     const [isLogin, setIsLogin] = useState(true);
 
-    // Handles input change
+    // Handle login data
+    const [loginData, setLoginData] = useState({ email: '', password: '' });
+
+    // Handles input change for signup form
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -26,6 +46,41 @@ const Auth = () => {
     // Toggle between login and signup form
     const toggleForm = () => {
         setIsLogin(!isLogin);
+    };
+
+    // Set the login data
+    const handleLoginChange = (e) => {
+        const { name, value } = e.target;
+        setLoginData({ ...loginData, [name]: value });
+    };
+
+    // Function to handle login
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await fetch('http://localhost:5000/api/auth/login', {
+                method: 'PUT', // Use POST instead of PUT for login
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(loginData),
+            });
+            console.log("response", response);
+
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('token', data.token);
+
+                // Navigate based on user role
+                if (data.role === "admin") {
+                    navigate('/dashboard');
+                } else if (data.role === "user") {
+                    navigate('/userdash');
+                }
+            } else {
+                alert('Login failed. Please check your credentials.');
+            }
+        } catch (error) {
+            console.error("Error during login:", error);
+        }
     };
 
     return (
@@ -48,14 +103,14 @@ const Auth = () => {
                                         <div className="center-wrap">
                                             <div className="section text-center">
                                                 <h4 className="mb-4 pb-3">Log In</h4>
-                                                <form onSubmit={(e) => e.preventDefault()}>
+                                                <form onSubmit={handleLogin}>
                                                     <div className="form-group">
                                                         <input
                                                             type="email"
-                                                            name="logemail"
+                                                            name="email"  // Changed to match loginData
                                                             className="form-style"
                                                             placeholder="Your Email"
-                                                            onChange={handleInputChange}
+                                                            onChange={handleLoginChange}
                                                             autoComplete="off"
                                                         />
                                                         <i className="input-icon uil uil-at"></i>
@@ -63,10 +118,10 @@ const Auth = () => {
                                                     <div className="form-group mt-2">
                                                         <input
                                                             type="password"
-                                                            name="logpass"
+                                                            name="password"  // Changed to match loginData
                                                             className="form-style"
                                                             placeholder="Your Password"
-                                                            onChange={handleInputChange}
+                                                            onChange={handleLoginChange}
                                                             autoComplete="off"
                                                         />
                                                         <i className="input-icon uil uil-lock-alt"></i>

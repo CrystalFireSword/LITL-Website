@@ -1,6 +1,8 @@
 .footer {
-    background-image: linear-gradient(-45deg, #E9DFD8, #FFE3D6, #CCCCFF, #C8F3F9, #EBFBDA); /* Using the light theme colors */
+    background-image: linear-gradient(-45deg, #E9DFD8, #ea89da, #505079, #C8F3F9, #EBFBDA); 
+    animation: 12s myGradient infinite;
     color: #111110; /* Timberwolf */
+    
     text-align: center;
     padding: 40px 0; /* Increased padding for height */
     position: relative;

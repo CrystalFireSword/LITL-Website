@@ -80,11 +80,11 @@ li a {
 }
 
 .navigation {
-  position: absolute;
   transform: translate(-50%, -50%);
   top: 7%;
   left: 735px;
   position: fixed;
+  z-index: 1000; 
   
 }
 
@@ -129,21 +129,7 @@ li a {
   transition: 2s;
 }
 
-@keyframes myFlash {
-  0% {
-    opacity: 1;
-    text-shadow: transparent;
-  }
-  
-  50% {
-    opacity: .1;
-  }
-  
-  100% {
-    opacity: 1;
-    text-shadow: 2px 2px 20px #fff;
-  }
-}
+
 
 .line-w5 {
   width: 5px;
@@ -188,32 +174,7 @@ li a {
   }
 }
 
-.flash-GIF {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #ff5959;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 15%;
-  left: 10%;
-  box-shadow: 2px 2px 20px #d4267d;
-  animation: 1.6s myFlash linear infinite;
-}
 
-@keyframes myFlash{
-  0% {
-    opacity: 1;
-  }
-  
-  50%{
-    opacity: .1;
-  }
-  
-  100% {
-    opacity: 1;
-  }
-}
 
 nav {
   transition: 3s;
@@ -306,42 +267,6 @@ nav {
 }
 
 
-.text-content-fluid {
-  display: flex;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 53%;
-  left: 50%;
-  letter-spacing: 25px;
-  font-size: 50px;
-  font-family: verdana;
-}
-
-.chinese-text {
-  color: #ed4278;
-  text-shadow: 2px 2px 18px #ff3678;
-}
-
-.chinese-text2 {
-  color: #ff3345;
-  text-shadow: 2px 2px 18px #d10045;
-}
-
-.chinese-text3 {
-  color: #d1387d;
-  text-shadow: 2px 2px 18px #ff6e6e;
-}
-
-.chinese-text4 {
-  color: #ff7d82;
-  text-shadow: 2px 2px 18px #ff4d00;
-  
-}
-
-.chinese-text5 {
-  color: #f50070;
-  text-shadow: 2px 2px 18px #fa9ecc;
-}
 
 @media(max-width: 767px) {
   .text-content-fluid {

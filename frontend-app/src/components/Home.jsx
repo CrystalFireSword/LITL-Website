@@ -1,13 +1,17 @@
 import React from "react";
 import '../App.css';
+import {Link} from "react-router-dom";
 
 const Home = () => {
  
     return(
         <div>
         <div className = "volunteer-hub" id = "volunteer-hub">
-            <h2>VolunteerConnect</h2>
-            <button className="carousel-btn join-now-btn">Join Now</button>
+            <h2 className = "company-name">Lit'L</h2>
+            <Link to = "/order-form">
+            <button className="button-63">Order now</button>
+            </Link>
+            
             <div className="carousel-buttons">
                 
             </div>

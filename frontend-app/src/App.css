@@ -24,13 +24,14 @@ h2 {
 /* Volunteer Hub Section with Carousel */
 .volunteer-hub {
   margin-top: 50px;
-  height: 400px; /* Adjust as needed */
+  height: 700px; /* Adjust as needed */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #fff;
+  background-image: url("../public/images/contentcreation.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -38,7 +39,63 @@ h2 {
 }
 
 /* Keyframes for background carousel */
+@keyframes backgroundCarousel {
+  0% {
+    background-image: url('../public/images/contentcreation.jpeg');
+  }
+  33% {
+    background-image: url('../public/images/marketinh.jpg');
+  }
+  66% {
+    background-image: url('../public/images/image3.png');
+  }
+  100% {
+    background-image: url('../public/images/posts.jpg');
+  }
+}
 
+.company-name{
+  color: black;
+  font-size: 60px;
+}
+
+
+/* CSS */
+.button-63 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#ea89da, #505079, #C8F3F9);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-63:active,
+.button-63:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-63 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
 
 /* Carousel button styling */
 .carousel-btn {
@@ -69,6 +126,7 @@ h2 {
   padding: 60px 20px;
   background-color: #f8f9fa;
   text-align: center;
+  background-image: linear-gradient( #C8F3F9, #EBFBDA);
   line-height: 1.8;
 }
 
@@ -84,19 +142,180 @@ h2 {
 }
 
 
-/* Keyframes for background image transitions */
-/*@keyframes backgroundCarousel {
-  0% {
-    background-image: url('image1.jpg');
+/* order form design */
+.order-form-class{
+  margin-top: 160px;
+  margin-left: 380px;
+}
+
+
+/* General Reset */
+
+
+
+
+
+.hero-section h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1s ease;
+  
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+.btn {
+  background-color: #E64833; /* Vibrant red */
+  color: #FBE9D0; /* Pale peach */
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #244855; /* Deep blue-green on hover */
+  color: #90AEAD;
+   /* Light teal text on hover */
+}
+
+/* About Section */
+.about-section {
+  background-color: #EAE7DC;
+  padding: 3rem 5%;
+  text-align: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  color: #E85A47;
+  margin-bottom: 1.5rem;
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  color: #252525;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+
+/* Rooms Section */
+.rooms-section {
+  padding: 3rem 5%;
+  background-color: #EAE7DC;
+  
+  text-align: center;
+}
+
+.rooms-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.room-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.room-card {
+  background-color: #E98074;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 30%;
+  transition: transform 2s ease-in-out;
+}
+
+
+.room-card:hover {
+  transform: scale(1.05);
+}
+
+.room-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.room-card h3 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.room-card p {
+  font-size: 1.2rem;
+  color: #E85A4F;
+}
+
+/* Gallery Section */
+.gallery-section {
+  padding: 3rem 5%;
+  background-color: #F0EAD6; /* Eggshell white */
+  background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png'); /* Adding a subtle pattern */
+  text-align: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-section h2 {
+  font-size: 2.5rem;
+  color: #E85A47; /* Taupe gray */
+  margin-bottom: 2rem;
+}
+
+.gallery-images {
+  display: flex;
+  flex-wrap: wrap; /* Make the gallery responsive */
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gallery-images img {
+  width: 100%;
+  max-width: 23%;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for box-shadow */
+  border: 2px solid #D8C3A5; /* Dark vanilla */
+  animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+}
+
+.gallery-images img:hover {
+  transform: scale(1.05);
+  border-color: #DA614E; /* Jelly bean red */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
   }
-  33% {
-    background-image: url('image2.jpg');
-  }
-  66% {
-    background-image: url('image3.jpg');
-  }
-  100% {
-    background-image: url('image1.jpg');
+  to {
+      opacity: 1;
   }
 }
-*/
+
+
+/* Booking Section */
+
+/* Reviews Section */
+
+
+
