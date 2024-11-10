@@ -2,14 +2,17 @@ import express from 'express'
 import Portfolio from '../models/portfolio.model.js'
 import { verifyToken } from '../middleware/authMiddleware.js'
 import {Filter, TypeFilter,HashtagFilter, LanguageFilter, PostFilterContext} from "../design_patterms/strategy_pattern.js"
+import {myBlog} from '../design_patterms/observer_pattern.js'
 
 const router = express.Router()
 
 // creating a post
 router.post('/', verifyToken, async (req, res)=>{
     const newItem = new Portfolio(req.body)
+    
     try {
         const savedItem = await newItem.save()
+        myBlog.addPost(savedItem)
         res.status(201).json(savedItem)
     } 
     catch (error){
@@ -45,9 +48,6 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: "Error retrieving portfolio items", error: error.message });
     }
 });
-
-
-
 
 
 // updating a given post

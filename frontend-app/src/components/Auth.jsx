@@ -72,6 +72,7 @@ const Auth = () => {
                 // Navigate based on user role
                 if (data.role === "admin") {
                     navigate('/dashboard');
+                    localStorage.setItem("admin","loggedin");
                 } else if (data.role === "user") {
                     navigate('/userdash');
                 }
