@@ -1,13 +1,9 @@
 /* src/Navbar.css */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+
 /* Background carousel for volunteer hub */
 /* General styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 0;
   padding: 0;
   color: #333;
@@ -31,31 +27,32 @@ h2 {
   align-items: center;
   text-align: center;
   color: #fff;
-  background-image: url("../public/images/contentcreation.jpeg");
+  background-image: url("https://wallpaperdelight.com/wp-content/uploads/2024/06/Capture-the-eerie-essence-of-a-gothic-witch-crafting-spells-in-a-dark-forest-with-glowing-runes-and-magical-symbols-in-the-file-named-mystical-gothic-witch-wallpaper.jpg.jpg ");
   background-size: cover;
   background-position: center;
+  opacity: 92%;
   background-repeat: no-repeat;
-  animation: backgroundCarousel 15s infinite linear;
+  animation: backgroundCarousel 10s infinite linear;
 }
 
 /* Keyframes for background carousel */
 @keyframes backgroundCarousel {
   0% {
-    background-image: url('../public/images/contentcreation.jpeg');
+    background-image: url('https://wallpaperdelight.com/wp-content/uploads/2024/06/Capture-the-eerie-essence-of-a-gothic-witch-crafting-spells-in-a-dark-forest-with-glowing-runes-and-magical-symbols-in-the-file-named-mystical-gothic-witch-wallpaper.jpg.jpg ');
   }
   33% {
-    background-image: url('../public/images/marketinh.jpg');
+    background-image: url('../public/images/candle-4075714_1280.jpg');
   }
   66% {
-    background-image: url('../public/images/image3.png');
+    background-image: url('https://wallpaperdelight.com/wp-content/uploads/2024/06/A-dragon-in-gothic-style-perched-on-a-cathedral-spire-with-wings-outstretched-set-against-a-backdrop-of-a-full-moon-and-a-starry-sky-is-captured-in-this-wallpaper.jpg');
   }
-  100% {
-    background-image: url('../public/images/posts.jpg');
-  }
+
 }
 
 .company-name{
-  color: black;
+  background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 60px;
 }
 
@@ -63,7 +60,7 @@ h2 {
 /* CSS */
 .button-63 {
   align-items: center;
-  background-image: linear-gradient(144deg,#ea89da, #505079, #C8F3F9);
+  background-image: linear-gradient(144deg,#ea89da, #4e1d4d,#241b51);
   border: 0;
   border-radius: 8px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -74,8 +71,6 @@ h2 {
   font-size: 20px;
   justify-content: center;
   line-height: 1em;
-  max-width: 100%;
-  min-width: 140px;
   padding: 19px 24px;
   text-decoration: none;
   user-select: none;
@@ -310,6 +305,104 @@ h2 {
   to {
       opacity: 1;
   }
+}
+
+.input-data input,
+.textarea textarea{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid rgba(0,0,0, 0.12);
+}
+.input-data input:focus ~ label, .textarea textarea:focus ~ label,
+.input-data input:valid ~ label, .textarea textarea:valid ~ label{
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #3498db;
+}
+.textarea textarea{
+  resize: none;
+  padding-top: 10px;
+}
+.input-data label{
+  position: absolute;
+  pointer-events: none;
+  bottom: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.textarea label{
+  width: 100%;
+  bottom: 40px;
+  background: #fff;
+}
+.input-data .underline{
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+.input-data .underline:before{
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before,
+.textarea textarea:focus ~ .underline:before,
+.textarea textarea:valid ~ .underline:before{
+  transform: scale(1);
+}
+.submit-btn .input-data{
+  overflow: hidden;
+  height: 45px!important;
+  width: 25%!important;
+}
+.submit-btn .input-data .inner{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+  transition: all 0.4s;
+}
+.submit-btn .input-data:hover .inner{
+  left: 0;
+}
+.submit-btn .input-data input{
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+/* Styling the select dropdown */
+.input-data select {
+  width: 100%;
+  padding: 10px;
+  font-size: 17px;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+  color: #333;
+  background-color: #f9f9f9;
+  appearance: none; /* Hides default dropdown arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
 }
 
 

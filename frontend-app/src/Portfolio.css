@@ -1,0 +1,208 @@
+/* Portfolio Page Layout */
+.portfolio-page {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Centered Header */
+.header-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+header {
+    text-align: center;
+    padding: 30px 40px;
+    border-radius: 15px;
+    border: 2px solid #00382E; /* Dark green border */
+    background-color: #FFF3E6; /* Light soft peach background for subtle contrast */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+    max-width: 700px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+header:hover {
+    transform: translateY(-5px); /* Slight lift */
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    color: #301934; /* Dark purple for bold emphasis */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+header p {
+    color: #463527; /* Café noir for readable text */
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* Section Boxes */
+.sections-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.section-box {
+    width: 240px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #00382E;
+    color: #000054; /* Federal blue text */
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #FFFFFF; /* Pure white for a clean look */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.section-box.active {
+    background-color: #700606; /* Blood red for active state */
+    color: #FFE3D6; /* Champagne pink text */
+}
+
+.section-box:hover {
+    background-color: #301934; /* Dark purple on hover */
+    color: #FFFFFF;
+    transform: scale(1.05);
+}
+
+/* Language Filter Section */
+.language-filter {
+    width: 100%;
+    max-width: 600px;
+    padding: 25px;
+    margin-top: 40px;
+    border-radius: 12px;
+    background-color: #FFFFFF; /* Pure white for a clean look */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.language-filter:hover {
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.language-filter h3 {
+    font-size: 1.2rem;
+    color: #700606; /* Blood red for emphasis */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.language-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.language-label {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #000054; /* Federal blue */
+    cursor: pointer;
+    border: 1px solid #00382E; /* Dark green border */
+    border-radius: 20px;
+    background-color: #FFFFFF; /* Pure white background for clean appearance */
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.language-label.selected {
+    background-color: #301934; /* Dark purple for selected option */
+    color: #FFFFFF;
+}
+
+.language-label:hover {
+    background-color: #C8F3F9; /* Light cyan on hover */
+    color: #301934; /* Dark purple text */
+    transform: scale(1.08);
+}
+
+/* Section Content */
+.section-content {
+    margin-top: 30px;
+    color: #463527; /* Café noir text */
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        margin-top: 60px;
+    }
+
+    .sections-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .section-box {
+        width: 100%;
+    }
+
+    .post-card {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .language-options {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.reset-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #FFFFFF;
+    background-color: #700606; /* Blood red for emphasis */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reset-button:hover {
+    background-color: #301934; /* Dark purple on hover */
+    transform: scale(1.05);
+}
+
+.add-button {
+    background-color: #28a745; /* Green background for the "Add" button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-button:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  

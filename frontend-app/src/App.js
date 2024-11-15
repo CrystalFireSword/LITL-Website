@@ -1,19 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import AuthPage from './pages/AuthPage';
-import OrderPage from './pages/OrderPage';
-import AdminPage from './pages/AdminPage';
+import Home from './components/Home.jsx';
+import Auth from './components/Auth.jsx';
+import Admin from './components/Admin.jsx';
+import Order from './components/Order.jsx';
+import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
+import Portfolio from './components/Portfolio.jsx';
 
 function App() {
   return (
-    <Routes>
-      <Route path = "/" element = {<HomePage/>}/>
-      <Route path = "/auth" element = {<AuthPage/>}/>
-      <Route path = "/order-form" element = {<OrderPage/>}/>
-      <Route path = "/dashboard" element = {<AdminPage/>}/>
-    </Routes>
+    <div>
+      <Navbar/>
+      <Routes>
+      <Route path = "/" element = {<Home/>}/>
+      <Route path = "/auth" element = {<Auth/>}/>
+      <Route path = "/dashboard" element = {<Admin/>}/>
+      <Route path = "/order-form" element = {<Order/>}/>
+      <Route path = "/portfolio" element = {<Portfolio/>}/>
+      </Routes>
+      <Footer/>
+    </div>
+    
+      
+   
   );
 }
 
