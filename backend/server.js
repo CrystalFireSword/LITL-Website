@@ -6,16 +6,9 @@ import dotenv from "dotenv"
 import authRoutes from './routes/auth.js'
 import portfolioRoutes from './routes/portfolio.js'
 import subscriberRouter from './routes/subscriber.js'
-<<<<<<< HEAD
 import ordersRouter from './routes/orders.js'
 
-import cors from 'cors';
-
-
-=======
-import formRouter from './routes/forms.js'
 import cors from 'cors'
->>>>>>> origin/branchAkshaya
 // load environment variables from the .env files
 
 
@@ -51,13 +44,9 @@ app.get('/', (req, res) => {
 // using the authentication routes
 app.use('/api/auth', authRoutes)
 app.use('/api/portfolio', portfolioRoutes)
-<<<<<<< HEAD
-app.use('/api/subscriber', subscriberRouter)
+//app.use('/api/forms', formRouter)
 app.use('/api/orders',ordersRouter)
-=======
-app.use('/api/forms', formRouter)
 app.use('/api/subscriber', subscriberRouter)
->>>>>>> origin/branchAkshaya
 
 // starting the server
 app.listen(PORT, ()=> {

@@ -24,8 +24,8 @@ const portfolioSchema = new mongoose.Schema({
     link: { 
         type: String,
         required: true }, // For links to posts or designs
-    image: { type: String,
-     }, // For images of designs
+    //image: { type: String,
+     //}, // For images of designs
    
     },
     {timestamps: true});

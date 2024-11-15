@@ -68,17 +68,17 @@ const Auth = () => {
             if (response.ok) {
                 const data = await response.json();
                 localStorage.setItem('token', data.token);
-
-                // Navigate based on user role
+                // Save user role in localStorage as { role: 'admin' } or { role: 'user' }
+                localStorage.setItem('user', JSON.stringify({ role: data.role }));
+                console.log('User saved to localStorage:', localStorage.getItem('user')); // Debug the saved user
                 if (data.role === "admin") {
-                    navigate('/dashboard');
-                    localStorage.setItem("admin","loggedin");
+                  navigate('/dashboard');
                 } else if (data.role === "user") {
-                    navigate('/userdash');
+                  navigate('/userdash');
                 }
-            } else {
+              }else{
                 alert('Login failed. Please check your credentials.');
-            }
+              }
         } catch (error) {
             console.error("Error during login:", error);
         }

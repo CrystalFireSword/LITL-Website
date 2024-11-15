@@ -7,6 +7,7 @@ import Admin from './components/Admin.jsx';
 import Order from './components/Order.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import Portfolio from './components/Portfolio.jsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path = "/auth" element = {<Auth/>}/>
       <Route path = "/dashboard" element = {<Admin/>}/>
       <Route path = "/order-form" element = {<Order/>}/>
+      <Route path = "/portfolio" element = {<Portfolio/>}/>
       </Routes>
       <Footer/>
     </div>

@@ -8,17 +8,10 @@ const router = express.Router()
 // when a post is posted under portfolio actions, send a notification to all subscribers
 
 router.post('/', async (req, res) =>{
-<<<<<<< HEAD
-    const newSubscriber = new Subscriber(req.body)
-    myBlog.subscribe(newSubscriber.mailId)
-    try{
-        const savedItem = await newSubscriber.save()
-=======
     const newSubscriber = new Subscriber(req.body)    
     try{
         const savedItem = await newSubscriber.save()
         myBlog.subscribe(newSubscriber.mailId)
->>>>>>> origin/branchAkshaya
         res.status(200).json(savedItem)
     } catch (err){
         res.status(400).json({message:'Error while creating subscriber'+err})
@@ -34,8 +27,4 @@ router.get('/', async (req, res) =>{
     }
 })
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/branchAkshaya
 export default router

@@ -1,0 +1,138 @@
+/* AddPostForm.css */
+
+.add-post-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .form-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 600px; /* Increased width */
+    height: auto; /* Allow height to adjust dynamically based on content */
+    max-height: 80vh; /* Ensure the form doesn't become too tall */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Add scrolling if content exceeds max height */
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="url"],
+  input[type="file"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  select {
+    font-size: 16px;
+    background-color: #fff;
+  }
+  
+  input[type="file"] {
+    padding: 5px;
+  }
+  
+  input[type="text"][placeholder] {
+    color: #999;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .submit-button,
+  .cancel-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .submit-button {
+    background-color: #28a745;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #218838;
+  }
+  
+  .cancel-button {
+    background-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cancel-button:hover {
+    background-color: #c82333;
+  }
+  
+  .submit-button:disabled,
+  .cancel-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .form-container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    .form-group {
+      margin-bottom: 12px;
+    }
+  
+    .submit-button,
+    .cancel-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  

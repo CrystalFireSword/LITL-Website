@@ -23,7 +23,10 @@ const Navbar = () => {
                 </Link>
             
               <li><a href="https://codepen.io/TomikaBoy/full/LqMpaE" target="_blank" className="active1">About</a></li>
-              <li><a href="https://codepen.io/" target="_blank" className="active2">Services</a></li>
+              <Link to = "/portfolio">
+              <li><a href="https://codepen.io/" target="_blank" className="active2">Portfolio</a></li>
+              </Link>
+              
               <li><a href="https://codepen.io/" target="_blank" className="active2">Contact</a></li>
               <li><a href="https://codepen.io/TomikaBoy/full/LqMpaE" target="_blank" className="active1">Testimonials</a></li>
               <Link to = "/auth">
