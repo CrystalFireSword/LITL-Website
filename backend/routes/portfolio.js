@@ -12,10 +12,12 @@ router.post('/', verifyToken, async (req, res)=>{
     
     try {
         const savedItem = await newItem.save()
+        console.log(savedItem);
         myBlog.addPost(savedItem)
         res.status(201).json(savedItem)
     } 
     catch (error){
+        console.log(error.message);
         return res.status(400).json({messagee:'Error while adding post'+error.message})
     }
 })

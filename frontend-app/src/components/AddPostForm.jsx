@@ -32,13 +32,14 @@ const AddPostForm = ({ closeForm }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const token = localStorage.getItem('token');
     const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
     try {
       const response = await fetch(`${apiUrl}/portfolio`, {
         method: 'POST',
         headers: {
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
@@ -99,29 +100,9 @@ const AddPostForm = ({ closeForm }) => {
             </select>
           </div>
 
-          <Select
-      options={options}
-      isMulti
-      value={selectedLanguages}
-      onChange={handleChange}
-      placeholder="Select languages"
-    />
-
-          <div className="form-group">
-            <label>Language</label>
-            <select
-              name="language"
-              value={formData.language}
-              onChange={handleChange}
-              multiple
-              required
-            >
-              <option value="English">English</option>
-              <option value="Hindi">Hindi</option>
-              <option value="Tamil">Tamil</option>
-              <option value="Sanskrit">Sanskrit</option>
-            </select>
-          </div>
+       
+         
+         
 
           <div className="form-group">
             <label>Link</label>
