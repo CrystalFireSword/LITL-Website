@@ -2,7 +2,7 @@
     padding: 2.5rem 2rem;
     border-radius: 16px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: 20%;
     height: 300px;
     transition: all 0.4s ease-in-out;
     
@@ -10,6 +10,11 @@
 
 .section{
     margin-top: 50px;
+       
+}
+
+.section.text-center{
+  width:100%;
 }
 
 .login-form:hover {
@@ -23,6 +28,7 @@
     font-size: 28px;
     font-weight: 700;
     text-align: center;
+
     color: #4c83ff;
 }
 
@@ -77,6 +83,7 @@
 
 /* Link styling */
 .text-center a {
+    width: 20%;
     font-size: 0.9rem;
     color: #4c83ff;
     text-decoration: none;
@@ -104,7 +111,7 @@
 
 .section{
   position: relative;
-  width: 100%;
+  width: 20%;
   display: block;
 }
 .full-height{
@@ -128,6 +135,7 @@
   cursor: pointer;
   background-color: #ffeba7;
 }
+
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
   position: absolute;
@@ -282,11 +290,12 @@
   
   .card-3d-wrap {
     width: 500px;
-    height: 550px;
+    height: 700px;
     position: relative;
     perspective: 1000px;
     margin-top: 40px;
-    background-image: url("../public/images/background.jpg");
+    background-image: url("../public/images/gothic-background.jpg");
+    
 }
 
 .card-3d-wrapper {
