@@ -2,38 +2,34 @@ import React from 'react';
 import '../PostCard.css';
 
 const PostCard = ({ post }) => {
-    // Ensure 'tags' is defined and is an array before using 'join'
-    const tags = Array.isArray(post?.tags) ? post.tags : [];  // Default to an empty array if undefined
-    const type = post?.type || "default"; // Handle optional 'type' field
-    
-    // Handle case when post or tags data is not available
-    if (!post) {
-      return <div>Loading...</div>; // or handle this as needed
-    }
-  
-    return (
-      <div className="post-card">
-        {/* Conditionally render the image if available */}
-        { <img src={process.env.PUBLIC_URL + '/images/image3.png'} alt={post.title} className="post-image" />}
-        
-        {/* Render the title */}
-        <h3>{post.title}</h3>
-        
-        {/* Render the description */}
-        <p>{post.description}</p>
-  
-        {/* Conditionally render tags if available */}
-        <div>
-          Tags: {tags.length > 0 ? tags.join(', ') : "No tags available"}
+  const link = post?.link || ""; // Link to the Instagram post
+  const postId = link.split('/p/')[1]?.split('/')[0]; // Extract the post ID (ignoring extra parameters)
+
+  return (
+    <div className="post-card">
+      {/* Render Instagram Embed using iframe */}
+      {postId && (
+        <div className="instagram-embed">
+          <iframe
+            src={`https://www.instagram.com/p/${postId}/embed`}
+            width="400"
+            height="480"
+
+            allowtransparency="true"
+            allow="encrypted-media"
+            title="Instagram post"
+            style={{ border: 'none', display: 'block' }} // To hide profile and extra UI
+          ></iframe>
         </div>
-  
-        {/* Render the type or a default value */}
-        <div>Type: {type}</div>
-      </div>
-    );
-  };
-  
+      )}
 
+      {/* Render the title */}
+      <h3>{post?.title}</h3>
 
+      {/* Render the description */}
+      <p>{post?.description}</p>
+    </div>
+  );
+};
 
 export default PostCard;

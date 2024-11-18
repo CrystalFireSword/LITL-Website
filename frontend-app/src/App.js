@@ -8,7 +8,6 @@ import Order from './components/Order.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Portfolio from './components/Portfolio.jsx';
-
 function App() {
   return (
     <div>

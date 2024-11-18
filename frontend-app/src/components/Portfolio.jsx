@@ -1,10 +1,11 @@
-// Portfolio.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PostCard from './PostCard';  // Import the PostCard component
 import '../Portfolio.css';
 import Carousel from './Carousel';
 import AddPostForm from './AddPostForm'; // Import AddPostForm
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import Popup from './Popup'; // Assuming you have a separate Popup component
 
 const Portfolio = () => {
   const [selectedSection, setSelectedSection] = useState(''); // No default section selected
@@ -12,14 +13,26 @@ const Portfolio = () => {
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [admin, setAdmin] = useState(null); // Set default to null for clarity
   const [showAddPostForm, setShowAddPostForm] = useState(false); // State for showing the form
+  const [showPopup, setShowPopup] = useState(false); // State for showing the popup
+  const[user , setUser] = useState(null);
+
+  const navigate = useNavigate(); // Hook to navigate to other pages
 
   // Fetch user info (for the sake of example)
   useEffect(() => {
     const loggedInUser = localStorage.getItem('user'); // Assume user is stored in localStorage
-    if (loggedInUser && JSON.parse(loggedInUser).role === 'admin') {
-      setAdmin(true); // Set admin state if logged in as admin
+    if (loggedInUser) {
+      const user = JSON.parse(loggedInUser);
+      if (user.role === 'admin') {
+        setAdmin(true); // Set admin state if logged in as admin
+      } else {
+        setAdmin(false); // Set admin to false if logged in as non-admin
+        setShowPopup(true); 
+        setUser(user);// Show popup if the user is not an admin
+      }
     } else {
-      setAdmin(false); // Set admin to false if not logged in as admin
+      setAdmin(false); // No user logged in
+      setShowPopup(true); // Show popup if no user is logged in
     }
   }, []);
 
@@ -72,22 +85,37 @@ const Portfolio = () => {
     setShowAddPostForm(false); // Close the form
   };
 
+  const navigateToDashboard = () => {
+    // Navigate to the appropriate dashboard based on user role
+    if (admin) {
+      navigate('/dashboard'); // Admin dashboard route
+    } else {
+      navigate('/user-dashboard'); // User dashboard route
+    }
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <>
       <Carousel />
-      
+
       <div className="header-container">
-        
         <header>
           <h1>PORTFOLIO NU</h1>
           <p>We showcase our finest work, tailored to meet every client’s need.</p>
         </header>
       </div>
+
       {admin && (
-            <div className="admin-actions" style={{ textAlign: 'center', marginTop: '20px' }}>
-              <button className="add-button" onClick={handleAddPostClick}>Add New Post</button>
-            </div>
-          )}
+        <div className="admin-actions" style={{ textAlign: 'center', marginTop: '20px' }}>
+          <button className="add-button" onClick={handleAddPostClick}>
+            Add New Post
+          </button>
+        </div>
+      )}
 
       <div className="portfolio-page">
         {/* Main Content */}
@@ -133,15 +161,10 @@ const Portfolio = () => {
             </button>
           </div>
 
-          {/* Admin Add Button (Only if user is logged in and is an admin) */}
-          
-
           {/* Content Display */}
           <div className="section-content">
             {filteredPosts.length > 0 ? (
-              filteredPosts.map((post) => (
-                <PostCard key={post._id} post={post} />
-              ))
+              filteredPosts.map((post) => <PostCard key={post._id} post={post} />)
             ) : (
               <p>No posts available for the selected filters.</p>
             )}
@@ -150,7 +173,38 @@ const Portfolio = () => {
       </div>
 
       {/* Popup Form */}
+      {showPopup && <Popup onClose={closePopup} />}
+
+      {/* Add Post Form */}
       {showAddPostForm && <AddPostForm closeForm={closeAddPostForm} />}
+
+      {/* Back to Dashboard Button with Fixed Position */}
+      {(admin || user) && ( // Only show if logged in (admin or non-admin)
+        <div
+          className="back-to-dashboard"
+          style={{
+            position: 'fixed',
+            bottom: '20px',  // Positioned at the bottom of the screen
+            left: '50%',     // Centered horizontally
+            transform: 'translateX(-50%)', // Perfect centering
+            zIndex: 1000,    // Ensure the button is on top of other elements
+          }}
+        >
+          <button
+            onClick={navigateToDashboard}
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#007BFF',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
+            Back to Dashboard
+          </button>
+        </div>
+      )}
     </>
   );
 };
