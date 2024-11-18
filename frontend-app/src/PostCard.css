@@ -1,107 +1,98 @@
-/* Post Card Styles */
 .post-card {
     background-color: #fff;
-    border-radius: 20px; /* Further round the corners for a softer look */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); /* More depth for the shadow */
-    margin: 25px;
-    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Added filter transition */
-}
-
-/* Hover Effect for the Post Card */
-.post-card:hover {
-    transform: translateY(-8px); /* Slightly stronger lift for the card */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Even larger shadow on hover */
-    filter: brightness(1.05); /* Slight brightening on hover */
-}
-
-/* Image Styles */
-.post-card-image {
     width: 100%;
-    height: 220px; /* Increased height for more visual impact */
+    max-width: 400px;
+    margin: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px; /* Added padding to space out text from edges */
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .post-image {
+    width: 100%;
+    height: 200px;
     object-fit: cover;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    transition: opacity 0.3s ease; /* Smooth fade effect */
-}
-
-.post-card-image:hover {
-    opacity: 0.9; /* Slight fade effect on hover */
-}
-
-/* Content Area */
-.post-card-content {
-    padding: 20px 25px; /* Enhanced padding for more spacious content */
-    background-color: #fafafa; /* Lighten background for the content */
-    flex-grow: 1;
-}
-
-/* Title Styles */
-.post-card-title {
-    font-size: 1.5em; /* Larger title for stronger impact */
-    font-weight: 600; /* Slightly less bold than 700 for better balance */
-    margin: 0 0 12px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  .no-image {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    color: #bbb;
+    font-size: 16px;
+  }
+  
+  .post-card .content {
+    padding: 20px; /* Added more padding for inner text */
+  }
+  
+  .post-card h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 10px 0;
     color: #333;
-    font-family: 'Roboto', sans-serif; /* Custom font for a modern look */
-}
-
-/* Description Styles */
-.post-card-description {
-    font-size: 1.1em; /* Slightly larger description for better readability */
-    color: #666;
-    margin: 0 0 18px;
-    line-height: 1.6; /* Better line height for readability */
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Paragraph Styles */
-.post-card p {
-    margin: 8px 0;
-    font-size: 1em; 
+  }
+  
+  .post-card p {
+    font-size: 1rem;
     color: #555;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Link Styles */
-.post-card-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500; /* Slightly lighter weight for the link */
-    margin-top: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .post-card .tags, .post-card .languages, .post-card .type {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  
+  .post-card .tags span, .post-card .languages span, .post-card .type span {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .post-card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .post-card .tags span {
+    background-color: #e0e0e0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+  }
+  
+  .post-card .btn-view {
     display: inline-block;
-    transition: color 0.3s ease, transform 0.2s ease; /* Smooth transition with slight scaling effect */
-}
-
-/* Link Hover Effects */
-.post-card-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
-    transform: scale(1.05); /* Slightly scale the link on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 12px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .post-card .btn-view:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
     .post-card {
-        width: 100%; /* Full width on smaller screens */
-        margin: 15px 0; /* Adjusted margin for mobile */
+      max-width: 100%;
     }
-
-    .post-card-image {
-        height: 200px; /* Adjust image height for smaller screens */
-    }
-
-    .post-card-title {
-        font-size: 1.3em; /* Reduced title size for mobile */
-    }
-
-    .post-card-description {
-        font-size: 1em; /* Adjusted description font size */
-    }
-
-    .post-card-content {
-        padding: 15px 20px; /* Reduced padding for smaller screens */
-    }
-}
+  }
+  

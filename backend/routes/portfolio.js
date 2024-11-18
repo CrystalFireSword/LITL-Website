@@ -3,6 +3,7 @@ import Portfolio from '../models/portfolio.model.js'
 import { verifyToken } from '../middleware/authMiddleware.js'
 import {Filter, TypeFilter,HashtagFilter, LanguageFilter, PostFilterContext} from "../design_patterms/strategy_pattern.js"
 import {myBlog} from '../design_patterms/observer_pattern.js'
+import { ColorSchemeScript } from '@mantine/core'
 
 const router = express.Router()
 
@@ -12,6 +13,7 @@ router.post('/', verifyToken, async (req, res)=>{
     
     try {
         const savedItem = await newItem.save()
+        console.log(savedItem);
         console.log(savedItem);
         myBlog.addPost(savedItem)
         res.status(201).json(savedItem)

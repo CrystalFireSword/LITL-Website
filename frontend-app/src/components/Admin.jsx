@@ -25,6 +25,10 @@ const Admin = () => {
         return null; // Don't render the component if the admin is not logged in
     }
 
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+    }
+
     return (
         <div className="main-content">
             {/* Top Bar Section */}
@@ -33,13 +37,13 @@ const Admin = () => {
                     <div className="top-bar-right">
                         <span className="profile">👤 Admin</span>
                         <Link to="/">
-                            <span className="profile">Logout</span>
+                            <span className="profile" onClick={handleLogout}>Logout</span>
                         </Link>
                     </div>
                 </div>
             </div>
 
-            {/* Key Metrics Section */}
+            <div className="section1">
             <div id="key-metrics" className="section">
                 <div className="key-metrics">
                     <div className="metric">
@@ -99,6 +103,9 @@ const Admin = () => {
                     />
                 </div>
             </div>
+            </div>
+            {/* Key Metrics Section */}
+            
         </div>
     );
 };
