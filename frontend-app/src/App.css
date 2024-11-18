@@ -2,12 +2,34 @@
 
 /* Background carousel for volunteer hub */
 /* General styling */
+
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 0;
   padding: 0;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.6;  
+  background-image: url("../public/images/gothic-background.jpg");
+  background-size: cover;
+  
+}
+
+@media(max-width: 767px) {  
+  body {    
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-image: url("../public/images/gothic-background1.jpg");
+    left: 50%;
+    top: 60%; 
+    width: 400px;  
+    height: 5rem; 
+    border-radius: 3%;
+    .button-63{
+      width: 100px;
+    }
+  }
+  
+
 }
 
 h2 {
@@ -19,8 +41,12 @@ h2 {
 
 /* Volunteer Hub Section with Carousel */
 .volunteer-hub {
-  margin-top: 50px;
-  height: 700px; /* Adjust as needed */
+  margin-top: 150px;
+  height: 20rem; /* Adjust as needed */
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 2%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,6 +89,7 @@ h2 {
   background-image: linear-gradient(144deg,#ea89da, #4e1d4d,#241b51);
   border: 0;
   border-radius: 8px;
+  width: 90px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
   box-sizing: border-box;
   color: #FFFFFF;
@@ -71,7 +98,7 @@ h2 {
   font-size: 20px;
   justify-content: center;
   line-height: 1em;
-  padding: 19px 24px;
+  
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -119,21 +146,25 @@ h2 {
 /* About Us Section */
 .about-us {
   padding: 60px 20px;
-  background-color: #f8f9fa;
+  background-color: #252525;
+  border-radius: 3%;
+  opacity: 90%;
   text-align: center;
-  background-image: linear-gradient( #C8F3F9, #EBFBDA);
+  color: rgb(245, 236, 236);
   line-height: 1.8;
+  width: 90%;
+  margin: 5%;
 }
 
 .about-us p {
   max-width: 800px;
   margin: 0 auto;
   font-size: 1rem;
-  color: #555;
+  color: rgb(255, 252, 252);
 }
 
 .about-us h2 {
-  color: #343a40;
+  color: white;
 }
 
 
@@ -145,9 +176,6 @@ h2 {
 
 
 /* General Reset */
-
-
-
 
 
 .hero-section h2 {
@@ -183,7 +211,7 @@ h2 {
 
 /* About Section */
 .about-section {
-  background-color: #EAE7DC;
+  background-color: black;
   padding: 3rem 5%;
   text-align: center;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);

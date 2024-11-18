@@ -99,12 +99,12 @@ const Portfolio = () => {
   };
 
   return (
-    <>
-      <Carousel />
-
+    <>     
+    
       <div className="header-container">
         <header>
-          <h1>PORTFOLIO NU</h1>
+          
+          <h1>PORTFOLIO</h1>
           <p>We showcase our finest work, tailored to meet every client’s need.</p>
         </header>
       </div>
