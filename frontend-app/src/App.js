@@ -8,6 +8,7 @@ import Order from './components/Order.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Portfolio from './components/Portfolio.jsx';
+import UpdateForm from './components/UpdateForm.jsx';
 function App() {
   return (
     <div>
@@ -18,6 +19,7 @@ function App() {
       <Route path = "/dashboard" element = {<Admin/>}/>
       <Route path = "/order-form" element = {<Order/>}/>
       <Route path = "/portfolio" element = {<Portfolio/>}/>
+      <Route path = "/update" element = {<UpdateForm/>}/>
       </Routes>
       <Footer/>
     </div>     

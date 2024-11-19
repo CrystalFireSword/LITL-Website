@@ -6,6 +6,7 @@ import Carousel from './Carousel';
 import AddPostForm from './AddPostForm'; // Import AddPostForm
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import Popup from './Popup'; // Assuming you have a separate Popup component
+import UpdateForm from './UpdateForm';
 
 const Portfolio = () => {
   const [selectedSection, setSelectedSection] = useState(''); // No default section selected
@@ -15,6 +16,10 @@ const Portfolio = () => {
   const [showAddPostForm, setShowAddPostForm] = useState(false); // State for showing the form
   const [showPopup, setShowPopup] = useState(false); // State for showing the popup
   const[user , setUser] = useState(null);
+
+  //for showing the update form
+  const[showUpdateForm , setShowUpdateForm] = useState(false);
+  const[formUpdate , setFormUpdate] = useState(null);
 
   const navigate = useNavigate(); // Hook to navigate to other pages
 
@@ -83,7 +88,14 @@ const Portfolio = () => {
 
   const closeAddPostForm = () => {
     setShowAddPostForm(false); // Close the form
+    setShowUpdateForm(false);
   };
+
+  //handle update functionality of post
+  const handlePostUpdate = (post) => {
+    setShowUpdateForm(true);
+    setFormUpdate(post);
+  }
 
   const navigateToDashboard = () => {
     // Navigate to the appropriate dashboard based on user role
@@ -115,6 +127,12 @@ const Portfolio = () => {
             Add New Post
           </button>
         </div>
+      )}
+
+      {showUpdateForm && (
+        <div className="admin-actions" style={{ textAlign: 'center', marginTop: '20px' }}>
+        <UpdateForm post = {formUpdate} closeForm={closeAddPostForm}/>
+      </div>
       )}
 
       <div className="portfolio-page">
@@ -184,7 +202,7 @@ const Portfolio = () => {
           {/* Content Display */}
           <div className="section-content">
             {filteredPosts.length > 0 ? (
-              filteredPosts.map((post) => <PostCard key={post._id} post={post} admin = {admin} />)
+              filteredPosts.map((post) => <PostCard key={post._id} post={post} admin = {admin} onUpdate = {handlePostUpdate} />)
             ) : (
               <p>No posts available for the selected filters.</p>
             )}
