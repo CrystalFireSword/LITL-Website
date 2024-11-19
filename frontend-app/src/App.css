@@ -14,15 +14,7 @@ body {
   
 }
 
-.back-to-dashboard{  
-    position: fixed;
-    bottom: '10px';
-    left: '50%';
-    transform: 'translateX(-50%)';
-    z-index: 1000;
-    margin-top: 250px;
-  
-}
+
 @media(max-width: 767px) {  
   body {    
     position: absolute;
@@ -43,7 +35,7 @@ body {
       left: '50%';
       transform: 'translateX(-50%)';
       z-index: 1000;
-      margin-top: 250px;
+      margin-top: 200px;
     
     }
       

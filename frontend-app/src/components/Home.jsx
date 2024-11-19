@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import '../App.css';
 import { Link, useNavigate } from "react-router-dom";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'; // For styles
 import Popup from "./Popup";
 import Carousel from "./Carousel";
+import '../App.css';
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -63,26 +63,7 @@ const Home = () => {
         </p>
       </div>
 
-      {/* Display "Back to Dashboard" button if the user is logged in */}
-      {isLoggedIn() && (
-        <div
-          className="back-to-dashboard"          
-        >
-          <button
-            onClick={navigateToDashboard}
-            style={{
-              padding: '10px 20px',
-
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              
-            }}
-          >
-            Back to Dashboard
-          </button>
-        </div>
-      )}
+      
 
       {showPopup && <Popup onClose={closePopup} />}
     </div>

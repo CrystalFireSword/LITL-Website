@@ -160,11 +160,15 @@ const Portfolio = () => {
             onClick={navigateToDashboard}
             style={{
               padding: '10px 20px',
-              backgroundColor: '#007BFF',
               color: '#fff',
               border: 'none',
               borderRadius: '5px',
               cursor: 'pointer',
+              backgroundColor : '#007BFF',
+              position : 'fixed',
+              zIndex : '1000',
+              transform: 'translateX(-50%)',
+              marginTop : '150px'
             }}
           >
             Back to Dashboard
