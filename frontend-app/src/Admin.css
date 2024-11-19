@@ -11,8 +11,9 @@
   .header {
     position: fixed;
     width: 98%;
-    background-image: linear-gradient(#3d3d64, #C8F3F9);
-    color: #fff;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
+    color: black;
+    opacity: 90%;
     padding: 10px 20px;
     display: flex;
     align-items: center;
@@ -54,14 +55,17 @@
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 10px;
+    
   }
   
   .metric {
     flex: 1;
     min-width: 200px;
     padding: 20px;
-    background-color: #ffffff;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
     border: 1px solid #ddd;
+    color: black;
+    opacity: 90%;
     border-radius: 8px;
     text-align: center;
     margin-top: 10px;
@@ -69,14 +73,14 @@
   
   .metric h3 {
     font-size: 1.1em;
-    color: #333;
+    color: #000000;
     margin-bottom: 10px;
   }
   
   .metric p {
     font-size: 1.5em;
     font-weight: bold;
-    color: #555;
+    color: #000000;
   }
   
   /* Charts and Tables Section Styling */
@@ -84,42 +88,60 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    
   }
   
   .chart, .table {
     flex: 1;
     min-width: 300px;
     padding: 20px;
-    background-color: #ffffff;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
     border: 1px solid #ddd;
+    color: black;
+    opacity: 90%;
     border-radius: 8px;
   }
   
   .chart h3, .table h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
+    
   }
   
   .table table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
+    
+    color: black;
+    opacity: 90%;
+    border: 1.5px solid black;
+    
   }
   
   .table th, .table td {
     padding: 8px;
-    border: 1px solid #ddd;
+    
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
+    
+    color: black;
+    opacity: 90%;
+    border: 1.5px solid black;
     text-align: left;
   }
   
   .table th {
-    background-color: #f3f3f3;
-    color: #333;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
+    
+    color: black;
+    opacity: 90%;
+    border: 1.5px solid black;
   }
   
   .table button {
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color: #161616;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -129,8 +151,10 @@
   /* Booking Calendar Section Styling */
   .calendar {
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
+    background: white;
+    color: black;
+    opacity: 95%;
+    border: 1.5px solid black;
     border-radius: 8px;
     text-align: center;
   }

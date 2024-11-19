@@ -16,7 +16,6 @@
     margin-top: 40px;
 }
 
-
 /* Centered Header */
 .header-container {
     display: flex;
@@ -29,7 +28,7 @@ header {
     padding: 30px 40px;
     border-radius: 15px;
     border: 2px solid #00382E; /* Dark green border */
-    background-color: #FFF3E6; /* Light soft peach background for subtle contrast */
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
     box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.12);
     max-width: 700px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -64,10 +63,13 @@ header p {
 
 /* Section Boxes */
 .sections-container {
+    background-color: black;
     display: flex;
     justify-content: center;
     gap: 20px;
+    padding: 1%;
     margin-top: 40px;
+    border-radius: 3%;
     flex-wrap: wrap;
 }
 
@@ -77,23 +79,36 @@ header p {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #00382E;
-    color: #000054; /* Federal blue text */
+    background-color: black;  
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.05);
+    border: 2px solid #cecc5a;
+    border: 2px solid #000000;
+    
     border-radius: 12px;
     cursor: pointer;
-    background-color: #FFFFFF; /* Pure white for a clean look */
+    
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.section-box.active {
-    background-color: #700606; /* Blood red for active state */
-    color: #FFE3D6; /* Champagne pink text */
+.section-box.active {    
+    background-color: #00382E;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid #cecc5a;
+    
 }
 
 .section-box:hover {
-    background-color: #301934; /* Dark purple on hover */
-    color: #FFFFFF;
+    
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );;  
+    
+    -webkit-text-fill-color: black;
     transform: scale(1.05);
+    border: 2px solid #cecc5a;
 }
 
 /* Language Filter Section */
@@ -141,19 +156,20 @@ header p {
 }
 
 .language-label.selected {
-    background-color: #301934; /* Dark purple for selected option */
-    color: #FFFFFF;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
+    -webkit-text-fill-color: black;
 }
 
 .language-label:hover {
-    background-color: #C8F3F9; /* Light cyan on hover */
-    color: #301934; /* Dark purple text */
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
+    -webkit-text-fill-color: black;
     transform: scale(1.08);
 }
 
 /* Section Content */
 .section-content {
     margin-top: 30px;
+    
     color: #463527; /* Café noir text */
     font-size: 1rem;
     display: flex;
@@ -171,11 +187,11 @@ header p {
     .sections-container {
         flex-direction: column;
         gap: 10px;
+        background-color: black;
+        padding: 6%;
+        border-radius: 3%;
     }
-
-    .section-box {
-        width: 100%;
-    }
+    
 
     .post-card {
         width: 90%;
@@ -193,31 +209,34 @@ header p {
     font-size: 1rem;
     color: #121212;
     background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
-    
-    border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .reset-button:hover {
-    opacity: 90%;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     transform: scale(1.05);
+    border: solid 1.5px rgb(203, 183, 6);
 }
 
 .add-button {
-    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
-    color: #181717;
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    font-size: 1rem;
+    color: #121212;
+    background: linear-gradient( #3e3e3e 0% , #eaeae8 26% , #b5b3b3 73% , #696969 100% );
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
   
   .add-button:hover {
-    opacity: 90%;
+    color: white;
+    background: #000000;
     transform: scale(1.05);
+    border: solid 1.5px rgb(207, 207, 207);
   }
   
