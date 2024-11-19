@@ -4,7 +4,7 @@
 /* General styling */
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   margin: 0;
   padding: 0;
   color: #333;
@@ -14,6 +14,15 @@ body {
   
 }
 
+.back-to-dashboard{  
+    position: fixed;
+    bottom: '10px';
+    left: '50%';
+    transform: 'translateX(-50%)';
+    z-index: 1000;
+    margin-top: 250px;
+  
+}
 @media(max-width: 767px) {  
   body {    
     position: absolute;
@@ -24,13 +33,21 @@ body {
     width: 400px;  
     height: 5rem; 
     border-radius: 3%;
+    
     .button-63{
       width: 100px;
     }
-  }
-  
-
-}
+    .back-to-dashboard{  
+      position: fixed;
+      bottom: '10px';
+      left: '50%';
+      transform: 'translateX(-50%)';
+      z-index: 1000;
+      margin-top: 250px;
+    
+    }
+      
+}}
 
 h2 {
   font-size: 2rem;

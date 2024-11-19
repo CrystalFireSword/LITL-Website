@@ -72,7 +72,10 @@ const Auth = () => {
                 localStorage.setItem('user', JSON.stringify({ role: data.role }));
                 console.log('User saved to localStorage:', localStorage.getItem('user')); // Debug the saved user
                 if (data.role === "admin") {
-                  navigate('/dashboard');
+                    localStorage.setItem("admin",true);
+                    console.log("Hi" + data.role
+                    )
+                    navigate("/dashboard");
                 } else if (data.role === "user") {
                   navigate('/userdash');
                 }

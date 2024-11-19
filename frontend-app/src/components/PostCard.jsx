@@ -1,7 +1,8 @@
 import React from 'react';
 import '../PostCard.css';
+import '../App.css';
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post , admin }) => {
   const link = post?.link || ""; // Link to the Instagram post
   const postId = link.split('/p/')[1]?.split('/')[0]; // Extract the post ID (ignoring extra parameters)
 
@@ -28,6 +29,10 @@ const PostCard = ({ post }) => {
 
       {/* Render the description */}
       <p>{post?.description}</p>
+
+      {admin && <button className='postcardbut'>
+        Update
+        </button>}
     </div>
   );
 };

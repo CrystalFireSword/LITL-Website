@@ -297,9 +297,11 @@ nav {
   .hamburger-menu {
     display: block;
     font-size: 30px;
-    color: white;
     cursor: pointer;
     margin-left: 55%;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   /* When the navbar is active, show the useful links */

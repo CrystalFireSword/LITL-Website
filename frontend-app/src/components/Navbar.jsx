@@ -33,27 +33,27 @@ const Navbar = () => {
                   {/* Links container */}
                   <div className={`useful-links ${isMenuOpen ? 'active' : ''}`}>
                     <Link to="/">
-                      <li><a href="https://codepen.io/TomikaBoy/full/LqMpaE" target="_blank" className="active1">Home</a></li>
+                      <li><a target="_blank" className="active1">Home</a></li>
                     </Link>
 
                     <Link to="/">
-                      <li><a href="https://codepen.io/TomikaBoy/full/LqMpaE" target="_blank" className="active1">About</a></li>
+                      <li><a target="_blank" className="active1">About</a></li>
                     </Link>
 
                     <Link to="/portfolio">
-                      <li><a href="https://codepen.io/" target="_blank" className="active2">Portfolio</a></li>
+                      <li><a target="_blank" className="active2">Portfolio</a></li>
                     </Link>
 
                     <Link to="/">
-                      <li><a href="https://codepen.io/" target="_blank" className="active2">Contact</a></li>
+                      <li><a target="_blank" className="active2">Contact</a></li>
                     </Link>
 
                     <Link to="/">
-                      <li><a href="https://codepen.io/TomikaBoy/full/LqMpaE" target="_blank" className="active1">Testimonials</a></li>
+                      <li><a target="_blank" className="active1">Testimonials</a></li>
                     </Link>
 
                     <Link to="/auth">
-                      <li><a href="https://w3schools.com/" target="_blank" className="active3">Login</a></li>
+                      <li><a target="_blank" className="active3">Login</a></li>
                     </Link>
                   </div>
                 </ul>

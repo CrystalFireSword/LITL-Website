@@ -132,7 +132,27 @@ const Portfolio = () => {
               </div>
             ))}
           </div>
-
+    {/* Back to Dashboard Button with Fixed Position */}
+    {(admin || user) && ( // Only show if logged in (admin or non-admin)
+        <div
+          className="back-to-dashboard"
+          
+        >
+          <button
+            onClick={navigateToDashboard}
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#007BFF',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
+            Back to Dashboard
+          </button>
+        </div>
+      )}
           {/* Language Filter Below Sections */}
           <div className="language-filter">
             <h3>Filter by Language</h3>
@@ -164,10 +184,12 @@ const Portfolio = () => {
           {/* Content Display */}
           <div className="section-content">
             {filteredPosts.length > 0 ? (
-              filteredPosts.map((post) => <PostCard key={post._id} post={post} />)
+              filteredPosts.map((post) => <PostCard key={post._id} post={post} admin = {admin} />)
             ) : (
               <p>No posts available for the selected filters.</p>
             )}
+        
+
           </div>
         </div>
       </div>
@@ -178,34 +200,7 @@ const Portfolio = () => {
       {/* Add Post Form */}
       {showAddPostForm && <AddPostForm closeForm={closeAddPostForm} />}
 
-      {/* Back to Dashboard Button with Fixed Position */}
-      {(admin || user) && ( // Only show if logged in (admin or non-admin)
-        <div
-          className="back-to-dashboard"
-          style={{
-            position: 'fixed',
-            bottom: '20px',  // Positioned at the bottom of the screen
-            left: '50%',     // Centered horizontally
-            transform: 'translateX(-50%)', // Perfect centering
-            zIndex: 1000,    // Ensure the button is on top of other elements
-          }}
-        >
-          <button
-            onClick={navigateToDashboard}
-            style={{
-              padding: '10px 20px',
-              backgroundColor: '#007BFF',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-            }}
-          >
-            Back to Dashboard
-          </button>
-        </div>
-      )}
-    </>
+          </>
   );
 };
 

@@ -66,24 +66,17 @@ const Home = () => {
       {/* Display "Back to Dashboard" button if the user is logged in */}
       {isLoggedIn() && (
         <div
-          className="back-to-dashboard"
-          style={{
-            position: 'fixed',
-            bottom: '20px',  // Positioned at the bottom of the screen
-            left: '50%',     // Centered horizontally
-            transform: 'translateX(-50%)', // Perfect centering
-            zIndex: 1000,    // Ensure the button is on top of other elements
-          }}
+          className="back-to-dashboard"          
         >
           <button
             onClick={navigateToDashboard}
             style={{
               padding: '10px 20px',
-              backgroundColor: '#007BFF',
-              color: '#fff',
+
               border: 'none',
               borderRadius: '5px',
               cursor: 'pointer',
+              
             }}
           >
             Back to Dashboard

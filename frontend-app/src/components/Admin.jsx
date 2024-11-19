@@ -14,6 +14,7 @@ const Admin = () => {
     useEffect(() => {
         // Check if the 'admin' item in local storage is set to 'loggedin'
         const adminStatus = localStorage.getItem('admin');
+        
         if (adminStatus) {
             setIsAdminLoggedIn(true);
         } else {

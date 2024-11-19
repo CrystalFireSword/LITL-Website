@@ -1,12 +1,14 @@
 .post-card {
-    background-color: #fff;
+    background-color: #151414;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 100%;
+    font-family: 'Times New Roman', Times, serif;
     max-width: 400px;
     margin: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
     padding: 15px; /* Added padding to space out text from edges */
   }
   
@@ -41,12 +43,20 @@
     font-weight: bold;
     margin: 10px 0;
     color: #333;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
   }
   
   .post-card p {
     font-size: 1rem;
     color: #555;
     line-height: 1.6;
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
     margin-bottom: 20px;
   }
   
@@ -88,6 +98,10 @@
   
   .post-card .btn-view:hover {
     background-color: #0056b3;
+  }
+
+  .postcardbut{
+    background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
   }
   
   @media (max-width: 768px) {
