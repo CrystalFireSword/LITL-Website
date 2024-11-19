@@ -1,12 +1,13 @@
 .footer {
-    background-image: linear-gradient(-45deg, #E9DFD8, #ea89da, #505079, #C8F3F9, #EBFBDA); 
+    background-color: rgb(31, 31, 30);
     animation: 12s myGradient infinite;
     color: #111110; /* Timberwolf */
     margin-top: 0px;
     text-align: center;
     padding: 40px 0; /* Increased padding for height */
     position: relative;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     bottom: 0;
     left: 0;
 }
@@ -14,6 +15,7 @@
 footer{
     color: black;
     height: 100px;
+    width: 90%;    
 }
 
 .footer-content {
@@ -25,7 +27,7 @@ footer{
 .footer p {
     margin: 0;
     font-size: 14px;
-    color: black;
+    color: rgb(247, 247, 247);
 }
 
 .footer-menu {

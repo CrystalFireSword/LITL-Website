@@ -2,7 +2,7 @@
     padding: 2.5rem 2rem;
     border-radius: 16px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: 20%;
     height: 300px;
     transition: all 0.4s ease-in-out;
     
@@ -10,6 +10,13 @@
 
 .section{
     margin-top: 50px;
+          
+    height: 20%;
+}
+
+.section.text-center{
+  
+  width:100%;
 }
 
 .login-form:hover {
@@ -19,15 +26,18 @@
 
 /* Heading styling */
 .login-form h2 {
+  
     margin-bottom: 1.5rem;
     font-size: 28px;
     font-weight: 700;
     text-align: center;
+
     color: #4c83ff;
 }
 
 /* Input label styling */
 .login-form label {
+  
     font-size: 0.9rem;
     font-weight: 500;
     color: #333;
@@ -35,8 +45,14 @@
     display: block;
 }
 
+.section.text-center{
+  background-color: rgb(29, 29, 29);
+  opacity: 90%;
+  width: 100%;
+}
 /* Input fields styling */
 .form-group input {
+  
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1.5rem;
@@ -57,6 +73,7 @@
 
 /* Button styling */
 .btn-block {
+  
     width: 100%;
     background-color: #ec08c2;
     color: #fff;
@@ -77,6 +94,8 @@
 
 /* Link styling */
 .text-center a {
+  
+    width: 100%;
     font-size: 0.9rem;
     color: #4c83ff;
     text-decoration: none;
@@ -100,10 +119,9 @@
     text-decoration: underline;
 }
 
-
-
 .section{
   position: relative;
+  
   width: 100%;
   display: block;
 }
@@ -128,6 +146,7 @@
   cursor: pointer;
   background-color: #ffeba7;
 }
+
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
   position: absolute;
@@ -152,12 +171,14 @@
 }
 
 .form-group{ 
+  
     position: relative;
     display: block;
       margin: 0;
       padding: 0;
   }
   .form-style {
+    
     padding: 13px 20px;
     padding-left: 55px;
     height: 48px;
@@ -277,19 +298,21 @@
     background-color: #102770;
     color: #ffeba7;
     box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
-  }
+  }  
   
-  
-  .card-3d-wrap {
-    width: 500px;
+  .card-3d-wrap {    
+    width: 100%;
     height: 550px;
-    position: relative;
-    perspective: 1000px;
-    margin-top: 40px;
-    background-image: url("../public/images/background.jpg");
+    
+    color: white;
+    perspective: 1000px;       
+    
+    opacity: 90%;
+    border-radius: 3%;
 }
 
-.card-3d-wrapper {
+.card-3d-wrapper { 
+  
     width: 100%;
     height: 100%;
     position: absolute;
@@ -298,11 +321,13 @@
 }
 
 .card-3d-wrapper.rotate {
+  
     transform: rotateY(180deg);
 }
 
 .card-front,
 .card-back {
+  
     width: 100%;
     height: 100%;
     position: absolute;
@@ -312,6 +337,7 @@
 }
 
 .card-front {
+  
     display: flex;
     align-items: center;
     justify-content: center;

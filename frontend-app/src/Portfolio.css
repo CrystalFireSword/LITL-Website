@@ -30,7 +30,7 @@ header {
     border-radius: 15px;
     border: 2px solid #00382E; /* Dark green border */
     background-color: #FFF3E6; /* Light soft peach background for subtle contrast */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.12);
     max-width: 700px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -162,12 +162,12 @@ header p {
 /* Responsive Design */
 @media (max-width: 768px) {
     .header-container {
-        margin-top: 60px;
+        margin-top: 100px;
     }
 
     .sections-container {
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
     }
 
     .section-box {

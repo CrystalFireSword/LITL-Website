@@ -1,19 +1,12 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
-/*
-  Css code writen here...
-*/
-/*Body section...@*/
-
 
 ul {
   list-style-type: none;
   display: flex;
   padding: 20px 0;
   gap: 30px;
-  background-size: 300% 300%;
-  background-image: linear-gradient(-45deg,#00382e,#463527,#000054,#700606,#301934); /* Lighter colors */
-  animation: 12s myGradient infinite;
+  background-size: 300% 300%;    
   border-radius: 40px;
   box-shadow: 3px 3px 20px #9a8185;
   border-top-left-radius: 0px;
@@ -23,6 +16,8 @@ ul {
   width: 100%;
   height: 5rem;
 }
+
+
 
 .useful-links{
     margin-left: 100px;
@@ -204,78 +199,6 @@ nav {
   }
 }
 
-@media(max-width: 767px) {
-  .flash-GIF {
-    display: none;
-  }
-  
-  .line-w5 {
-    display: none;
-  }
-  
-  .navigation {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 13%;
-    left: 50%;
-  }
-  
-  .text-content-fluid {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 65%;
-    left: 50%;
-  }
-  
-  ul {
-    padding: 15px 0;
-  }
-  
-  
-  li a {
-    padding: 34px 34px;
-    font-size: 23px;
-    font-weight: lighter;
-  }
-  
-  .radial-cyrcle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: tomato;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 70%;
-    left: 50%;
-    box-shadow: 2px 2px 20px #ff3352;
-    background-image: linear-gradient(to top, #ff2657, #ff3333, #ff5900);
-  }
-}
-
-.dropdown  a{
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  background: tomato;
-  width: 100px;
-  text-align: center;
-  font-family: verdana;
-  line-height: 30px;
-  display: none;
-
-}
-
-
-
-@media(max-width: 767px) {
-  .text-content-fluid {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 60%;
-  }
-}
-
 
 /*Ideal screen pixel 1317px*/
 
@@ -353,4 +276,100 @@ nav {
 .Active {
   transition: 2s;
   margin-top: 1px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+  /* Hide navigation items on mobile */
+  .useful-links {
+    display: none;
+    flex-direction: column;
+    width: 100%; /* Ensure full width */
+    position: absolute;
+    top: 60px; /* Position below the navbar */    
+    padding: 20px;
+    border-radius: 10px;   
+    
+  }
+
+  /* Show hamburger menu */
+  .hamburger-menu {
+    display: block;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin-left: 55%;
+  }
+
+  /* When the navbar is active, show the useful links */
+  .useful-links.active {
+    display: flex;
+    background-color: black;
+  }
+
+  /* Style each menu item when active */
+  .useful-links li {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+  }
+
+  /* Links within each item */
+  li a {
+    font-size: 20px;
+    color: #f2de7a;
+    padding: 15px;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  /* Navbar position */
+  .navigation {
+    top: 5%;
+    left: 0;
+    width: 100%; /* Ensure full width */
+    position: fixed; /* Keep navbar fixed at top */
+    z-index: 1000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 75px;
+    align-items: center;
+
+    }
+  .nav-type{
+    width: 300%;
+  }
+
+  
+}
+  
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .hamburger-menu {
+    display: none; /* Hide hamburger menu on desktop */
+  }
+
+  .useful-links {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .useful-links li {
+    margin-right: 30px;
+  }
+
+  /* Keep the navbar items visible on desktop */
+  .email {
+    display: block; /* Show email on desktop */
+    margin-left: 1100px;
+    margin-top: 30px;
+  }
+
+  .fa-search {
+    display: block; /* Show search on desktop */
+    margin-left: 30px;
+  }
 }
