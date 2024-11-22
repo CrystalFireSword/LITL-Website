@@ -85,7 +85,7 @@ li a {
   left: 735px;
   position: fixed;
   z-index: 1000; 
-  
+  width: 100%;
   
 }
 

@@ -73,19 +73,24 @@ const popupOverlayStyle = {
   zIndex: 1000,
 };
 
+
 // Popup Content Style
 const popupContentStyle = {
-  backgroundColor: "white",
+  backgroundColor: "black",
   padding: '30px',
   borderRadius: '8px', // Removed duplicate borderRadius
   // Removed animation since it's unclear what 'myGradient' refers to
   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // Single boxShadow for consistency
   width: '350px',
   textAlign: 'center',
+  'box-shadow': '0px 3px 10px 0px #f2de7a'
 };
 
 // Heading Style
 const headingStyle = {
+  background: 'linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% )', // Green for the subscription button
+  '-webkit-background-clip': 'text',
+  '-webkit-text-fill-color': 'transparent',
   fontSize: '24px',
   fontWeight: 'bold',
   marginBottom: '15px',
@@ -93,6 +98,9 @@ const headingStyle = {
 
 // Message Style
 const messageStyle = {
+  background: 'linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% )', // Green for the subscription button
+  '-webkit-background-clip': 'text',
+  '-webkit-text-fill-color': 'transparent',
   fontSize: '16px',
   marginBottom: '20px',
   lineHeight: '1.5',
@@ -121,25 +129,33 @@ const inputStyle = {
 // Submit Button Style
 const submitButtonStyle = {
   padding: '12px 20px',
-  backgroundColor: '#28a745', // Green for the subscription button
-  color: 'white',
-  border: 'none',
+  background: 'linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% )', // Green for the subscription button
+  '-webkit-background-clip': 'text',
+  '-webkit-text-fill-color': 'transparent',
+  backgroundColor : 'black',
+  color: 'black',
+  border: '2px solid #f2de7a',
   borderRadius: '4px',
   cursor: 'pointer',
   fontSize: '14px',
   transition: 'background-color 0.3s',
+  'box-shadow': '0px 3px 10px 0px #f2de7a'
 };
 
 // Close Button Style
 const closeButtonStyle = {
+  background: 'linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% )', // Green for the subscription button
+  '-webkit-background-clip': 'text',
+  '-webkit-text-fill-color': 'transparent',
   marginTop: '15px',
   padding: '8px 12px',
-  backgroundColor: '#f44336', // Red color for close button
+  backgroundColor: 'gray', // Red color for close button
   color: 'white',
-  border: 'none',
+  border: '2px solid #f2de7a',
   borderRadius: '4px',
   cursor: 'pointer',
   fontSize: '14px',
+  'box-shadow': '0px 3px 10px #f2de7a',
   transition: 'background-color 0.3s ease-in-out',
 };
 

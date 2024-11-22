@@ -2,9 +2,12 @@
 
 /* Background carousel for volunteer hub */
 /* General styling */
+@import url("https://fonts.googleapis.com/css2?family=Bokor&family=Jim+Nightshade&family=Quintessential&display=swap");
+
+
 
 body {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Quintessential", serif;
   margin: 0;
   padding: 0;
   color: #333;
@@ -88,26 +91,27 @@ h2 {
   background: linear-gradient( #ae7c2b 0% , #f2de7a 46% , #d7bc6f 73% , #c9ba6c 100% );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 60px;
+  font-size: 65px;
+  font-style: italic;
+  
 }
 
 
 /* CSS */
 .button-63 {
   align-items: center;
-  background-image: linear-gradient(144deg,#ea89da, #4e1d4d,#241b51);
-  border: 0;
-  border-radius: 8px;
+  background: linear-gradient(rgb(106, 105, 105) 0%, rgb(72, 72, 72) 20% , rgb(44, 43, 43) 55%, rgb(26, 25, 25) 70%, rgb(58, 56, 56) 100%);
+  color: #f2de7a;
+  border: 2px solid ;
+  border-radius: 5px;
   width: 90px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-shadow: 0px 5px 10px 0px #ada166;
   box-sizing: border-box;
-  color: #FFFFFF;
-  display: flex;
-  font-family: Phantomsans, sans-serif;
+  padding: 15px;
+  display: flex;  
   font-size: 20px;
   justify-content: center;
-  line-height: 1em;
-  
+  line-height: 1em;  
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -118,12 +122,15 @@ h2 {
 
 .button-63:active,
 .button-63:hover {
+  
   outline: 0;
 }
 
 @media (min-width: 768px) {
   .button-63 {
     font-size: 24px;
+    padding-left: 15px;
+    padding-right: 15px;
     min-width: 196px;
   }
 }

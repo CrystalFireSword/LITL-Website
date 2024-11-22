@@ -62,9 +62,6 @@ const Home = () => {
           The mission is to offer a seamless and inclusive experience for both volunteers and organizations, promoting a culture of collaboration to build stronger, more vibrant communities through acts of service.
         </p>
       </div>
-
-      
-
       {showPopup && <Popup onClose={closePopup} />}
     </div>
   );
