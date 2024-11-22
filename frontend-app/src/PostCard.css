@@ -4,7 +4,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 100%;
-    font-family: 'Times New Roman', Times, serif;
     max-width: 400px;
     margin: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;

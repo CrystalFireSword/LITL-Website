@@ -1,9 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Bokor&family=Bonheur+Royale&family=Italianno&family=Jim+Nightshade&family=Quintessential&display=swap");
 /* Portfolio Page Layout */
 .portfolio-page {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Quintessential", serif;
     min-height: 100vh; /* Ensures the page takes the full height of the viewport */
 }
 
