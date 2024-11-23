@@ -7,10 +7,8 @@ import authRoutes from './routes/auth.js'
 import portfolioRoutes from './routes/portfolio.js'
 import subscriberRouter from './routes/subscriber.js'
 import ordersRouter from './routes/orders.js'
-
 import cors from 'cors'
 // load environment variables from the .env files
-
 
 dotenv.config({path:'../.env'});
 
@@ -20,9 +18,9 @@ const app = express()
 const PORT = process.env.PORT || 5000
 
 // introduce middleware to parse json file
-app.use(cors({origin:"http://localhost:3000"}))
+app.use(cors({origin:"http://localhost:5001"}))
 app.use(express.json())
-app.use(cors({ origin: 'http://localhost:3000' }));
+
 
 // mongodb connection
 
