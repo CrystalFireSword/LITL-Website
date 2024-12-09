@@ -51,9 +51,15 @@ h2 {
   margin-bottom: 20px;
 }
 
+.border1{
+  margin-top: 150px;
+}
+.border1 h1{
+  visibility: hidden;
+}
 /* Volunteer Hub Section with Carousel */
 .volunteer-hub {
-  margin-top: 150px;
+  margin-top: -40px;
   height: 20rem; /* Adjust as needed */
   width: 90%;
   margin-left: 5%;

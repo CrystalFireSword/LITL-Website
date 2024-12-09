@@ -1,11 +1,7 @@
 /* Reset some default styles */
 
   
-  /* Main content to allow scrollable area with fixed navbar */
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-  }
+
   
   /* Top Bar Styling */
   .header {
@@ -15,10 +11,12 @@
     color: black;
     opacity: 90%;
     padding: 10px 20px;
+    margin-top: -40px;
+    margin-left: 10px;
     display: flex;
     align-items: center;
+    position: fixed;
     justify-content: flex-end;
-    margin-top: 50px;
     z-index: 1000;
   }
   
@@ -44,7 +42,7 @@
 
   .section1{
     
-    margin-top: 80px;
+    margin-top: 150px;
     width:100%;
     
   }

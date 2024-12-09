@@ -6,6 +6,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import AuthNavbar from "./AuthNavbar";
 
 const Admin = () => {
     const navigate = useNavigate();
@@ -26,24 +27,8 @@ const Admin = () => {
         return null; // Don't render the component if the admin is not logged in
     }
 
-    const handleLogout = () => {
-        localStorage.removeItem('user');
-    }
-
+    
     return (
-        <div className="main-content">
-            {/* Top Bar Section */}
-            <div className="header">
-                <div className="top-bar">
-                    <div className="top-bar-right">
-                        <span className="profile">👤 Admin</span>
-                        <Link to="/">
-                            <span className="profile" onClick={handleLogout}>Logout</span>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-
             <div className="section1">
             <div id="key-metrics" className="section">
                 <div className="key-metrics">
@@ -105,9 +90,6 @@ const Admin = () => {
                 </div>
             </div>
             </div>
-            {/* Key Metrics Section */}
-            
-        </div>
     );
 };
 

@@ -35,7 +35,9 @@ const PostCard = ({ post , admin , onUpdate}) => {
       {/* Render the description */}
       <p>{post?.description}</p>
 
-      
+      {admin && <button className='postcardbut' onClick={handleUpdate}>
+        Update
+        </button>}
     </div>
   );
 };

@@ -48,7 +48,7 @@ const Navbar = () => {
                       <li><a target="_blank" className="active2">Contact</a></li>
                     </Link>
 
-                    <Link to="/">
+                    <Link to="/reviews">
                       <li><a target="_blank" className="active1">Testimonials</a></li>
                     </Link>
 

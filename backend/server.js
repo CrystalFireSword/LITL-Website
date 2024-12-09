@@ -7,6 +7,7 @@ import authRoutes from './routes/auth.js'
 import portfolioRoutes from './routes/portfolio.js'
 import subscriberRouter from './routes/subscriber.js'
 import ordersRouter from './routes/orders.js'
+import reviewsRouter from './routes/reviews.js'
 
 import cors from 'cors'
 // load environment variables from the .env files
@@ -22,7 +23,7 @@ const PORT = process.env.PORT || 5000
 // introduce middleware to parse json file
 app.use(cors({origin:"http://localhost:3000"}))
 app.use(express.json())
-app.use(cors({ origin: 'http://localhost:3000' }));
+//app.use(cors({ origin: 'http://localhost:3000' }));
 
 // mongodb connection
 
@@ -47,6 +48,7 @@ app.use('/api/portfolio', portfolioRoutes)
 //app.use('/api/forms', formRouter)
 app.use('/api/orders',ordersRouter)
 app.use('/api/subscriber', subscriberRouter)
+app.use('/api/reviews',reviewsRouter)
 
 // starting the server
 app.listen(PORT, ()=> {

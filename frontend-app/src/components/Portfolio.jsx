@@ -150,31 +150,7 @@ const Portfolio = () => {
               </div>
             ))}
           </div>
-    {/* Back to Dashboard Button with Fixed Position */}
-    {(admin || user) && ( // Only show if logged in (admin or non-admin)
-        <div
-          className="back-to-dashboard"
-          
-        >
-          <button
-            onClick={navigateToDashboard}
-            style={{
-              padding: '10px 20px',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              backgroundColor : '#007BFF',
-              position : 'fixed',
-              zIndex : '1000',
-              transform: 'translateX(-50%)',
-              marginTop : '150px'
-            }}
-          >
-            Back to Dashboard
-          </button>
-        </div>
-      )}
+   
           {/* Language Filter Below Sections */}
           <div className="language-filter">
             <h3>Filter by Language</h3>

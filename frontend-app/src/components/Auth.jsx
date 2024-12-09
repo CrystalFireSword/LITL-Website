@@ -8,7 +8,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-const Auth = () => {
+const Auth = ({onRoleUpdate}) => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
@@ -71,6 +71,7 @@ const Auth = () => {
                 // Save user role in localStorage as { role: 'admin' } or { role: 'user' }
                 localStorage.setItem('user', JSON.stringify({ role: data.role }));
                 console.log('User saved to localStorage:', localStorage.getItem('user')); // Debug the saved user
+                onRoleUpdate(data.role);
                 if (data.role === "admin") {
                     localStorage.setItem("admin",true);
                     console.log("Hi" + data.role
