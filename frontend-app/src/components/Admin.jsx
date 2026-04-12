@@ -6,28 +6,32 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { cookies } from "../utils/cookies";
 
 const Admin = () => {
     const navigate = useNavigate();
     const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
     useEffect(() => {
-        // Check if the 'admin' item in local storage is set to 'loggedin'
-        const adminStatus = localStorage.getItem('admin');
-        
-        if (adminStatus) {
-            setIsAdminLoggedIn(true);
+        const userData = cookies.get('user');
+        if (userData) {
+            const user = JSON.parse(userData);
+            if (user.role === 'admin') {
+                setIsAdminLoggedIn(true);
+            } else {
+                navigate('/auth');
+            }
         } else {
-            navigate('/auth'); // Redirect to the login page if not logged in
+            navigate('/auth');
         }
     }, [navigate]);
 
     if (!isAdminLoggedIn) {
-        return null; // Don't render the component if the admin is not logged in
+        return null;
     }
 
     const handleLogout = () => {
-        localStorage.removeItem('user');
+        cookies.remove('user');
     }
 
     return (

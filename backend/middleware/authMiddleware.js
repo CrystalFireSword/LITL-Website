@@ -13,7 +13,6 @@ export const authMiddleware = (req, res, next) =>{
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
         // attach user to next object
         req.user = decoded
-        console.log(req.user)
         next()
     } 
     catch (error){
@@ -31,7 +30,6 @@ export const verifyToken = (req, res, next) =>{
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
         // attach user to next object
         req.user = decoded
-        console.log(req.user)
         const admin_id = process.env.ADMIN_ID
         if (req.user.userId!=admin_id){
             return res.status(400).json({message:'Access Denied'})

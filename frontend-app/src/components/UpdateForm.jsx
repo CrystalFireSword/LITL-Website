@@ -73,14 +73,13 @@ const UpdateForm = ({ post, closeForm }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('token');
     const apiUrl = 'http://localhost:5000/api';
 
     try {
       const response = await fetch(`${apiUrl}/portfolio/${post._id}`, {
         method: 'PUT',
+        credentials: 'include',
         headers: {
-          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),

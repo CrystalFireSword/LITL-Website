@@ -18,11 +18,14 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "express-rate-limit": "^8.3.2",
+    "express-validator": "^7.3.2",
     "googleapi": "^1.0.2",
     "googleapis": "^144.0.0",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.2",
-    "nodemailer": "^6.9.16"
+    "nodemailer": "^8.0.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"

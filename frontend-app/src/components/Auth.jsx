@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Auth.css";
 import { useNavigate } from "react-router-dom";
+import { cookies } from "../utils/cookies";
 import FullCalendar from '@fullcalendar/react';  //to use calender
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -63,18 +64,11 @@ const Auth = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(loginData),
             });
-            console.log("response", response);
 
             if (response.ok) {
                 const data = await response.json();
-                localStorage.setItem('token', data.token);
-                // Save user role in localStorage as { role: 'admin' } or { role: 'user' }
-                localStorage.setItem('user', JSON.stringify({ role: data.role }));
-                console.log('User saved to localStorage:', localStorage.getItem('user')); // Debug the saved user
+                cookies.set('user', JSON.stringify({ role: data.role }), 1);
                 if (data.role === "admin") {
-                    localStorage.setItem("admin",true);
-                    console.log("Hi" + data.role
-                    )
                     navigate("/dashboard");
                 } else if (data.role === "user") {
                   navigate('/userdash');

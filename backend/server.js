@@ -1,5 +1,3 @@
-// import statements
-
 import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
@@ -8,39 +6,36 @@ import portfolioRoutes from './routes/portfolio.js'
 import subscriberRouter from './routes/subscriber.js'
 import ordersRouter from './routes/orders.js'
 import cors from 'cors'
-// load environment variables from the .env files
+import helmet from 'helmet'
+import rateLimit from 'express-rate-limit'
 
 dotenv.config({path:'../.env'});
-
-// create the express app
 
 const app = express()
 const PORT = process.env.PORT || 5000
 
-// introduce middleware to parse json file
-app.use(cors({origin:"http://localhost:5001"}))
-app.use(express.json())
+app.use(helmet())
+app.use(cors({
+    origin: process.env.NODE_ENV === 'production' ? process.env.FRONTEND_URL : "http://localhost:5001",
+    credentials: true
+}))
+app.use(express.json({ limit: '10kb' }))
 
-
-// mongodb connection
-
-// console.log(process.env.MONGODB_URI)
+const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 10,
+    message: { message: 'Too many attempts, please try again later' }
+})
 
 mongoose.connect(process.env.MONGODB_URI)
 .then(()=> console.log('MongoDB connected successfully!'))
 .catch(err => console.error('MongoDB connection error', err))
 
-// Simple route to test if the server is running
-
-
 app.get('/', (req, res) => {
     res.send("LITL SERVER IS RUNNING!")
 })
 
-
-
-// using the authentication routes
-app.use('/api/auth', authRoutes)
+app.use('/api/auth', authLimiter, authRoutes)
 app.use('/api/portfolio', portfolioRoutes)
 //app.use('/api/forms', formRouter)
 app.use('/api/orders',ordersRouter)

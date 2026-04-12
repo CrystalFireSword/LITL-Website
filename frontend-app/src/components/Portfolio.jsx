@@ -1,43 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import PostCard from './PostCard';  // Import the PostCard component
+import PostCard from './PostCard';
 import '../Portfolio.css';
 import Carousel from './Carousel';
-import AddPostForm from './AddPostForm'; // Import AddPostForm
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import Popup from './Popup'; // Assuming you have a separate Popup component
+import AddPostForm from './AddPostForm';
+import { useNavigate } from 'react-router-dom';
+import Popup from './Popup';
 import UpdateForm from './UpdateForm';
+import { cookies } from "../utils/cookies";
 
 const Portfolio = () => {
-  const [selectedSection, setSelectedSection] = useState(''); // No default section selected
-  const [selectedLanguages, setSelectedLanguages] = useState([]); // Default no language filter
+  const [selectedSection, setSelectedSection] = useState('');
+  const [selectedLanguages, setSelectedLanguages] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
-  const [admin, setAdmin] = useState(null); // Set default to null for clarity
-  const [showAddPostForm, setShowAddPostForm] = useState(false); // State for showing the form
-  const [showPopup, setShowPopup] = useState(false); // State for showing the popup
+  const [admin, setAdmin] = useState(null);
+  const [showAddPostForm, setShowAddPostForm] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const[user , setUser] = useState(null);
 
-  //for showing the update form
   const[showUpdateForm , setShowUpdateForm] = useState(false);
   const[formUpdate , setFormUpdate] = useState(null);
 
-  const navigate = useNavigate(); // Hook to navigate to other pages
+  const navigate = useNavigate();
 
-  // Fetch user info (for the sake of example)
   useEffect(() => {
-    const loggedInUser = localStorage.getItem('user'); // Assume user is stored in localStorage
+    const loggedInUser = cookies.get('user');
     if (loggedInUser) {
       const user = JSON.parse(loggedInUser);
       if (user.role === 'admin') {
-        setAdmin(true); // Set admin state if logged in as admin
+        setAdmin(true);
       } else {
-        setAdmin(false); // Set admin to false if logged in as non-admin
-        setShowPopup(true); 
-        setUser(user);// Show popup if the user is not an admin
+        setAdmin(false);
+        setShowPopup(true);
+        setUser(user);
       }
     } else {
-      setAdmin(false); // No user logged in
-      setShowPopup(true); // Show popup if no user is logged in
+      setAdmin(false);
+      setShowPopup(true);
     }
   }, []);
 

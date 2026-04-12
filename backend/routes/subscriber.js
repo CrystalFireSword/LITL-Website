@@ -1,29 +1,43 @@
 import express from 'express'
 import Subscriber from '../models/subscribers.model.js'
 import {myBlog} from '../design_patterms/observer_pattern.js'
+import { body, validationResult } from 'express-validator'
+import { authMiddleware } from '../middleware/authMiddleware.js'
 
 const router = express.Router()
 
-// to write get method to get all subscribers and post method to add subscribers
-// when a post is posted under portfolio actions, send a notification to all subscribers
+router.post('/', [
+    body('mailId')
+        .trim()
+        .isEmail().withMessage('Invalid email address')
+        .normalizeEmail()
+], async (req, res) =>{
+    try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ message: errors.array()[0].msg });
+        }
 
-router.post('/', async (req, res) =>{
-    const newSubscriber = new Subscriber(req.body)    
-    try{
+        const existingSubscriber = await Subscriber.findOne({ mailId: req.body.mailId });
+        if (existingSubscriber) {
+            return res.status(400).json({ message: 'Email already subscribed' });
+        }
+
+        const newSubscriber = new Subscriber(req.body)
         const savedItem = await newSubscriber.save()
         myBlog.subscribe(newSubscriber.mailId)
         res.status(200).json(savedItem)
     } catch (err){
-        res.status(400).json({message:'Error while creating subscriber'+err})
+        res.status(400).json({message:'Error while creating subscriber'})
     }
 })
 
-router.get('/', async (req, res) =>{
+router.get('/', authMiddleware, async (req, res) =>{
     try{
         const subscribers = await Subscriber.find({})
         res.status(200).json(subscribers)
     }catch(err){
-        res.status(400).json({message: 'Error while getting subscribers'+err})
+        res.status(400).json({message: 'Error while getting subscribers'})
     }
 })
 

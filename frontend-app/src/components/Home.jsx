@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'; // For styles
+import 'react-datepicker/dist/react-datepicker.css';
 import Popup from "./Popup";
 import Carousel from "./Carousel";
 import '../App.css';
+import { cookies } from "../utils/cookies";
 
 const Home = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [admin, setAdmin] = useState(null); // Default to null for clarity
-  const navigate = useNavigate(); // Hook to navigate
+  const [admin, setAdmin] = useState(null);
+  const navigate = useNavigate();
 
-  // Check if the user is an admin by reading from localStorage
   const checkAdminStatus = () => {
-    const loggedInUser = localStorage.getItem('user');
+    const loggedInUser = cookies.get('user');
     if (loggedInUser) {
       const user = JSON.parse(loggedInUser);
-      setAdmin(user.role === 'admin'); // Set the admin state based on user role
+      setAdmin(user.role === 'admin');
     }
   };
 
   const isLoggedIn = () => {
-    const loggedInUser = localStorage.getItem('user'); // Check if a user is logged in
-    return loggedInUser !== null; // If user exists in localStorage, they are logged in
+    const loggedInUser = cookies.get('user');
+    return loggedInUser !== null;
   };
 
   useEffect(() => {
-    checkAdminStatus(); // Check admin status on component mount
+    checkAdminStatus();
 
     if (!admin) { // Only show popup if user is not admin
       const timer = setTimeout(() => {

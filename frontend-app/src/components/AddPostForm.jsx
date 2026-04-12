@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../AddPostForm.css'; // Optional, for styling
+import '../AddPostForm.css';
 import Choices from 'choices.js';
 import 'choices.js/public/assets/styles/choices.min.css'; // Import Choices.js styles
 
@@ -48,17 +48,16 @@ const AddPostForm = ({ closeForm }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('token');
     const apiUrl = 'http://localhost:5000/api';
 
     try {
       const response = await fetch(`${apiUrl}/portfolio`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
-          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData), // Send the form data
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {

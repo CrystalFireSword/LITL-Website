@@ -21,7 +21,7 @@ router.get('/', verifyToken, async (req, res) => {
         const formData = await Form.find({})
         res.json(formData);
     } catch (error) {
-        res.status(500).json({ message: "Error retrieving form data", error: error.message });
+        res.status(500).json({ message: "Error retrieving form data" });
     }
 });
 
@@ -29,11 +29,11 @@ router.get('/', verifyToken, async (req, res) => {
 // updating a given post
 router.put('/:id', verifyToken, async(req, res)=>{
     try{
-        const updatedItem = await Form.findbyIdandUpdate(req.params.id, req.body)
+        const updatedItem = await Form.findByIdAndUpdate(req.params.id, req.body)
         res.status(200).json(updatedItem)
     }
     catch (error){
-        res.status(500).json(error)
+        res.status(500).json({ message: "Error updating item" })
     }
 })
 

@@ -1,4 +1,7 @@
 # Environment variables
-.env
 /backend/node_modules
+.env
 /backend/credentials.json
+/SECURITY_REPORT.md
+/AGENTS.md
+
