@@ -1,48 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../Auth.css";
 import { useNavigate } from "react-router-dom";
 import { cookies } from "../utils/cookies";
-import FullCalendar from '@fullcalendar/react';  //to use calender
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-
 
 const Auth = () => {
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({
-        name: "",
-        phone: "",
-        signupEmail: "",
-        signupPass: "",
-    });
-    const [events, setEvents] = useState([]);
-    const [selectedEvent, setSelectedEvent] = useState(null);
-    const [newDate, setNewDate] = useState(null);
 
-    /*useEffect(() => {
-        const fetchOrders = async() => {
-            try{
-                const response = await axios.get('')
-            }
-        }
-    })*/
-
-    // State to toggle between login and signup
     const [isLogin, setIsLogin] = useState(true);
 
     // Handle login data
     const [loginData, setLoginData] = useState({ email: '', password: '' });
-
-    // Handles input change for signup form
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
 
     // Toggle between login and signup form
     const toggleForm = () => {
@@ -140,7 +107,6 @@ const Auth = () => {
                                                             name="name"
                                                             className="form-style"
                                                             placeholder="Your Name"
-                                                            onChange={handleInputChange}
                                                             autoComplete="off"
                                                         />
                                                         <i className="input-icon uil uil-user"></i>
@@ -151,7 +117,6 @@ const Auth = () => {
                                                             name="phone"
                                                             className="form-style"
                                                             placeholder="Your Phone"
-                                                            onChange={handleInputChange}
                                                             autoComplete="off"
                                                         />
                                                         <i className="input-icon uil uil-phone"></i>
@@ -162,7 +127,6 @@ const Auth = () => {
                                                             name="signupEmail"
                                                             className="form-style"
                                                             placeholder="Your Email"
-                                                            onChange={handleInputChange}
                                                             autoComplete="off"
                                                         />
                                                         <i className="input-icon uil uil-at"></i>
@@ -173,7 +137,6 @@ const Auth = () => {
                                                             name="signupPass"
                                                             className="form-style"
                                                             placeholder="Your Password"
-                                                            onChange={handleInputChange}
                                                             autoComplete="off"
                                                         />
                                                         <i className="input-icon uil uil-lock-alt"></i>

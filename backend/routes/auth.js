@@ -1,9 +1,9 @@
 import express from 'express'
 import User from '../models/user.model.js'
-import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { authMiddleware } from '../middleware/authMiddleware.js'
 import { body, validationResult } from 'express-validator'
+import { hashPassword, comparePassword } from '../services/passwordService.js'
 
 const router = express.Router()
 
@@ -34,10 +34,8 @@ router.post('/signup', [
         if (existingUser){
             return res.status(400).json({message: 'User already exists'})
         }
-        
-        const saltRounds = 10;
-        const salt = await bcrypt.genSalt(saltRounds);
-        const hashedPassword = await bcrypt.hash(password, salt)
+
+        const hashedPassword = await hashPassword(password)
 
         const newUser = new User({
             username,
@@ -77,7 +75,7 @@ router.put('/login', [
             return res.status(400).json({ message: 'Invalid email or password' });
         }
 
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = await comparePassword(password, user.password);
         if (!isMatch) {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
@@ -115,11 +113,8 @@ router.get('/profile', authMiddleware, async (req,res)=>{
 // updating a user's profile based on token and updated values
 router.put('/profile', authMiddleware, async(req,res)=>{
     const {username,password} = req.body
-    const saltRounds = 10;
-    const salt = await bcrypt.genSalt(saltRounds);
     
-    //hashing using salt
-    const hashedPassword = await bcrypt.hash(password, salt)
+    const hashedPassword = await hashPassword(password)
     try{
         const updatedUser = await User.findByIdAndUpdate(
             req.user.userId,

@@ -10,55 +10,51 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <div className="html-container">
-        <div className="html-section">
-          <div className="html-project">
-            <div className="navigation">
-              <nav>
-                <ul className="nav-type">
+    <div className="html-container">
+      <div className="html-section">
+        <div className="html-project">
+          <div className="navigation">
+            <nav>
+              <ul className="nav-type">
+                <Link to="/">
+                  <img 
+                    src={`${process.env.PUBLIC_URL}/images/logo.png`} 
+                    style={{ height: "5rem", marginLeft: "3rem", marginTop: "-1rem" }} 
+                    alt="Logo" 
+                  />
+                </Link>
+
+                <div className="hamburger-menu" onClick={toggleMenu}>
+                  <i className={`fa ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+                </div>
+
+                <div className={`useful-links ${isMenuOpen ? 'active' : ''}`}>
                   <Link to="/">
-                    <img 
-                      src={`${process.env.PUBLIC_URL}/images/logo.png`} 
-                      style={{ height: "5rem", marginLeft: "3rem", marginTop: "-1rem" }} 
-                      alt="Logo" 
-                    />
+                    <li><a target="_blank" className="active1">Home</a></li>
                   </Link>
 
-                  {/* Hamburger menu icon */}
-                  <div className="hamburger-menu" onClick={toggleMenu}>
-                    <i className={`fa ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
-                  </div>
+                  <Link to="/">
+                    <li><a target="_blank" className="active1">About</a></li>
+                  </Link>
 
-                  {/* Links container */}
-                  <div className={`useful-links ${isMenuOpen ? 'active' : ''}`}>
-                    <Link to="/">
-                      <li><a target="_blank" className="active1">Home</a></li>
-                    </Link>
+                  <Link to="/portfolio">
+                    <li><a target="_blank" className="active2">Portfolio</a></li>
+                  </Link>
 
-                    <Link to="/">
-                      <li><a target="_blank" className="active1">About</a></li>
-                    </Link>
+                  <Link to="/">
+                    <li><a target="_blank" className="active2">Contact</a></li>
+                  </Link>
 
-                    <Link to="/portfolio">
-                      <li><a target="_blank" className="active2">Portfolio</a></li>
-                    </Link>
+                  <Link to="/">
+                    <li><a target="_blank" className="active1">Testimonials</a></li>
+                  </Link>
 
-                    <Link to="/">
-                      <li><a target="_blank" className="active2">Contact</a></li>
-                    </Link>
-
-                    <Link to="/">
-                      <li><a target="_blank" className="active1">Testimonials</a></li>
-                    </Link>
-
-                    <Link to="/auth">
-                      <li><a target="_blank" className="active3">Login</a></li>
-                    </Link>
-                  </div>
-                </ul>
-              </nav>
-            </div>
+                  <Link to="/auth">
+                    <li><a target="_blank" className="active3">Login</a></li>
+                  </Link>
+                </div>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
